@@ -1,8 +1,30 @@
 import Lottie from 'lottie-react';
 import lottieImg from '../../assets/login/login.json'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import SocialLogin from '../../components/SocialLogin';
+import useAuth from '../../hooks/useAuth';
+import { toast } from 'react-toastify';
 const Login = () => {
+    const { loginUser } = useAuth();
+    const navigate = useNavigate();
+
+    const handleLogin = e => {
+        e.preventDefault();
+        const form = e.target
+        const formData = new FormData(form);
+        const data = Object.fromEntries(formData.entries());
+        console.log(data);
+
+        loginUser(data.email, data.password)
+            .then((result) => {
+                console.log(result);
+                toast.success('Login user successfully')
+                navigate('/')
+            })
+            .catch(error => {
+                toast.error(`Wrong email & password or ${error.message}`);
+            })
+    }
     return (
         <div>
             <div className="md:flex gap-12 min-h-screen bg-white shadow-lg rounded-lg overflow-hidden items-center max-w-5xl mx-auto px-6 py-12">
@@ -21,13 +43,14 @@ const Login = () => {
                         Please login to your account
                     </p>
 
-                    <form className="mt-6">
+                    <form onSubmit={handleLogin} className="mt-6">
                         {/* Email Input */}
                         <div className="form-control mb-4">
                             <label className="label">
                                 <span className="label-text font-medium">Email</span>
                             </label>
                             <input
+                                name='email'
                                 type="email"
                                 placeholder="Enter your email"
                                 className="input input-bordered w-full"
@@ -41,6 +64,7 @@ const Login = () => {
                                 <span className="label-text font-medium">Password</span>
                             </label>
                             <input
+                                name='password'
                                 type="password"
                                 placeholder="Enter your password"
                                 className="input input-bordered w-full"
