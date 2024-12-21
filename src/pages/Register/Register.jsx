@@ -2,6 +2,7 @@ import Lottie from 'lottie-react';
 import lottieImg from '../../assets/login/register.json'
 import { Link } from 'react-router-dom';
 import SocialLogin from '../../components/SocialLogin';
+import { toast } from 'react-toastify';
 const Register = () => {
 
     const handleRegister = e => {
@@ -9,7 +10,11 @@ const Register = () => {
         const form = e.target
         const formData = new FormData(form);
         const data = Object.fromEntries(formData.entries());
-        console.log(data);
+        const password = data.password;
+        if (password.length < 6) {
+            toast.error('Password must be 6 character or longer')
+            return
+        }
     }
     return (
         <div>

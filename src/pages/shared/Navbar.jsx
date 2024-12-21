@@ -1,16 +1,17 @@
 import { Link, NavLink } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
+import { toast } from "react-toastify";
 
 const Navbar = () => {
     const { user, logOut } = useAuth();
 
     const handleLogout = () => {
         logOut()
-            .then(result => {
-                console.log(result);
+            .then(() => {
+                toast.success('Login log out success')
             })
             .catch(error => {
-                console.log(error.message);
+                toast.error(error.message);
             })
     }
     return (
@@ -23,11 +24,17 @@ const Navbar = () => {
                 </div>
                 <div className="flex-none gap-2">
                     <div>
-                        <>
-                            <Link to='/login'>
-                                <button className="bg-customGreen hover:bg-[#03816e] text-white px-8 py-2 rounded-full">Login</button>
-                            </Link>
-                        </>
+                        {user ? <>
+                            <button
+                                onClick={handleLogout}
+                                className="bg-customGreen hover:bg-[#03816e] text-white px-8 py-2 rounded-full">Logout</button>
+                        </> :
+                            <>
+                                <Link to='/login'>
+                                    <button className="bg-customGreen hover:bg-[#03816e] text-white px-8 py-2 rounded-full">Login</button>
+                                </Link>
+                            </>
+                        }
                     </div>
                     {user &&
                         <div className="dropdown dropdown-end">
@@ -53,13 +60,7 @@ const Navbar = () => {
                                 <li>
                                     <NavLink to='myAssignment'>My Assignments</NavLink>
                                 </li>
-                                <li>
-                                    <Link>
-                                        <button
-                                            onClick={handleLogout}
-                                            className="bg-customGreen hover:bg-[#03816e] text-white px-8 py-2 rounded-full">Logout</button>
-                                    </Link>
-                                </li>
+
                             </ul>
                         </div>
                     }

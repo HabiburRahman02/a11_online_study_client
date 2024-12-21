@@ -1,15 +1,20 @@
+
+import { toast } from "react-toastify";
 import useAuth from "../hooks/useAuth";
+import { useNavigate } from "react-router-dom";
 
 
 const SocialLogin = () => {
     const { googleLogin } = useAuth();
+    const navigate = useNavigate();
     const handleGoogleLogin = () => {
         googleLogin()
-            .then(result => {
-                console.log(result);
+            .then(() => {
+                toast.success('Login user successfully')
+                navigate('/')
             })
             .catch(error => {
-                console.log(error.message);
+                toast.error(error.message);
             })
     }
     return (
