@@ -12,7 +12,7 @@ const Navbar = () => {
                 <div className="flex-none gap-2">
                     <div>
                         <Link>
-                            <button className="bg-[#1ba590] hover:bg-[#03816e] text-white px-8 py-2 rounded-full">login</button>
+                            <button className="bg-customGreen hover:bg-[#03816e] text-white px-8 py-2 rounded-full">login</button>
                         </Link>
                     </div>
                     <div className="dropdown dropdown-end">
@@ -25,7 +25,7 @@ const Navbar = () => {
                         </div>
                         <ul
                             tabIndex={0}
-                            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
+                            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-50 mt-3 w-52 p-2 shadow">
                             <li>
                                 <a className="justify-between">
                                     Profile
