@@ -1,9 +1,12 @@
 import Lottie from 'lottie-react';
 import lottieImg from '../../assets/login/register.json'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import SocialLogin from '../../components/SocialLogin';
 import { toast } from 'react-toastify';
+import useAuth from '../../hooks/useAuth';
 const Register = () => {
+    const { createUser } = useAuth();
+    const navigate = useNavigate();
 
     const handleRegister = e => {
         e.preventDefault();
@@ -12,9 +15,22 @@ const Register = () => {
         const data = Object.fromEntries(formData.entries());
         const password = data.password;
         if (password.length < 6) {
-            toast.error('Password must be 6 character or longer')
-            return
+            return toast.error('Password must be 6 character or longer')
         }
+
+        const regex = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
+        if (!regex.test(password)) {
+            return toast.error('Password must be One uppercase & one lowercase')
+        }
+
+        createUser(data.email, data.password)
+            .then(() => {
+                toast.success('Create user successfully')
+                navigate('/')
+            })
+            .catch(error => {
+                toast.error(error.message);
+            })
     }
     return (
         <div>

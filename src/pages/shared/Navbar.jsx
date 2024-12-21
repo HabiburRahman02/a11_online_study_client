@@ -8,7 +8,7 @@ const Navbar = () => {
     const handleLogout = () => {
         logOut()
             .then(() => {
-                toast.success('Login log out success')
+                toast.success('Logout user successfully')
             })
             .catch(error => {
                 toast.error(error.message);
