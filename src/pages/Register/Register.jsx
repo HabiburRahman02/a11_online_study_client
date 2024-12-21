@@ -1,7 +1,7 @@
 import Lottie from 'lottie-react';
-import lottieImg from '../../assets/login/login.json'
+import lottieImg from '../../assets/login/register.json'
 import { Link } from 'react-router-dom';
-const Login = () => {
+const Register = () => {
     return (
         <div>
             <div className="md:flex gap-12 min-h-screen bg-white shadow-lg rounded-lg overflow-hidden items-center max-w-5xl mx-auto px-6 py-12">
@@ -14,19 +14,44 @@ const Login = () => {
                 {/* Right Section: Form */}
                 <div className="md:w-1/2">
                     <h2 className="text-3xl font-bold text-gray-800 text-center">
-                        Welcome Back
+                        Register Now
                     </h2>
                     <p className="text-gray-600 text-center mt-2">
-                        Please login to your account
+                        Please register your account
                     </p>
 
                     <form className="mt-6">
                         {/* Email Input */}
                         <div className="form-control mb-4">
                             <label className="label">
+                                <span className="label-text font-medium">Name</span>
+                            </label>
+                            <input
+                                name='name'
+                                type="text"
+                                placeholder="Enter your name"
+                                className="input input-bordered w-full"
+
+                            />
+                        </div>
+                        <div className="form-control mb-4">
+                            <label className="label">
+                                <span className="label-text font-medium">Photo Url</span>
+                            </label>
+                            <input
+                                name='photoUrl'
+                                type="email"
+                                placeholder="Enter your photo url"
+                                className="input input-bordered w-full"
+
+                            />
+                        </div>
+                        <div className="form-control mb-4">
+                            <label className="label">
                                 <span className="label-text font-medium">Email</span>
                             </label>
                             <input
+                                name='email'
                                 type="email"
                                 placeholder="Enter your email"
                                 className="input input-bordered w-full"
@@ -40,6 +65,7 @@ const Login = () => {
                                 <span className="label-text font-medium">Password</span>
                             </label>
                             <input
+                                name='password'
                                 type="password"
                                 placeholder="Enter your password"
                                 className="input input-bordered w-full"
@@ -49,7 +75,7 @@ const Login = () => {
 
                         {/* Login Button */}
                         <button type="submit" className=" bg-customGreen hover:bg-[#03816e] text-white px-8 py-4 rounded-lg w-full ">
-                            Login
+                            Register
                         </button>
                     </form>
 
@@ -63,9 +89,9 @@ const Login = () => {
 
                     {/* Redirect to Register */}
                     <p className="text-sm text-center text-gray-600 mt-4">
-                        Don’t have an account?{" "}
-                        <Link to="/register" className="text-primary hover:underline">
-                            Register here
+                        Already have an account?{" "}
+                        <Link to="/login" className="text-primary hover:underline">
+                            Login here
                         </Link>
                     </p>
                 </div>
@@ -74,4 +100,4 @@ const Login = () => {
     );
 };
 
-export default Login;
+export default Register;
