@@ -1,7 +1,16 @@
 import Lottie from 'lottie-react';
 import lottieImg from '../../assets/login/register.json'
 import { Link } from 'react-router-dom';
+import SocialLogin from '../../components/SocialLogin';
 const Register = () => {
+
+    const handleRegister = e => {
+        e.preventDefault();
+        const form = e.target
+        const formData = new FormData(form);
+        const data = Object.fromEntries(formData.entries());
+        console.log(data);
+    }
     return (
         <div>
             <div className="md:flex gap-12 min-h-screen bg-white shadow-lg rounded-lg overflow-hidden items-center max-w-5xl mx-auto px-6 py-12">
@@ -20,7 +29,7 @@ const Register = () => {
                         Please register your account
                     </p>
 
-                    <form className="mt-6">
+                    <form onSubmit={handleRegister} className="mt-6">
                         {/* Email Input */}
                         <div className="form-control mb-4">
                             <label className="label">
@@ -40,7 +49,7 @@ const Register = () => {
                             </label>
                             <input
                                 name='photoUrl'
-                                type="email"
+                                type="text"
                                 placeholder="Enter your photo url"
                                 className="input input-bordered w-full"
 
@@ -83,9 +92,7 @@ const Register = () => {
                     <div className="divider">OR</div>
 
                     {/* Social Login */}
-                    <button className="btn btn-outline hover:text-black w-full hover:bg-gray-100">
-                        Continue with Google
-                    </button>
+                    <SocialLogin></SocialLogin>
 
                     {/* Redirect to Register */}
                     <p className="text-sm text-center text-gray-600 mt-4">

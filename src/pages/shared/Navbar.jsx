@@ -1,7 +1,18 @@
 import { Link, NavLink } from "react-router-dom";
+import useAuth from "../../hooks/useAuth";
 
 const Navbar = () => {
-    const user = true;
+    const { user, logOut } = useAuth();
+
+    const handleLogout = () => {
+        logOut()
+            .then(result => {
+                console.log(result);
+            })
+            .catch(error => {
+                console.log(error.message);
+            })
+    }
     return (
         <nav className=" bg-base-100">
             <div className="navbar max-w-[1400px] mx-auto py-4">
@@ -12,15 +23,11 @@ const Navbar = () => {
                 </div>
                 <div className="flex-none gap-2">
                     <div>
-                        {user ? <>
-                            <Link>
-                                <button className="bg-customGreen hover:bg-[#03816e] text-white px-8 py-2 rounded-full">Logout</button>
-                            </Link>
-                        </> : <>
-                            <Link>
+                        <>
+                            <Link to='/login'>
                                 <button className="bg-customGreen hover:bg-[#03816e] text-white px-8 py-2 rounded-full">Login</button>
                             </Link>
-                        </>}
+                        </>
                     </div>
                     {user &&
                         <div className="dropdown dropdown-end">
@@ -47,7 +54,11 @@ const Navbar = () => {
                                     <NavLink to='myAssignment'>My Assignments</NavLink>
                                 </li>
                                 <li>
-                                    <button className="btn ">Logout</button>
+                                    <Link>
+                                        <button
+                                            onClick={handleLogout}
+                                            className="bg-customGreen hover:bg-[#03816e] text-white px-8 py-2 rounded-full">Logout</button>
+                                    </Link>
                                 </li>
                             </ul>
                         </div>

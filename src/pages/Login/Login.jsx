@@ -1,6 +1,7 @@
 import Lottie from 'lottie-react';
 import lottieImg from '../../assets/login/login.json'
 import { Link } from 'react-router-dom';
+import SocialLogin from '../../components/SocialLogin';
 const Login = () => {
     return (
         <div>
@@ -57,9 +58,7 @@ const Login = () => {
                     <div className="divider">OR</div>
 
                     {/* Social Login */}
-                    <button className="btn btn-outline hover:text-black w-full hover:bg-gray-100">
-                        Continue with Google
-                    </button>
+                    <SocialLogin></SocialLogin>
 
                     {/* Redirect to Register */}
                     <p className="text-sm text-center text-gray-600 mt-4">
