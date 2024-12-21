@@ -1,8 +1,9 @@
+import Faq from "./Faq";
 
 const Home = () => {
     return (
         <div>
-            home
+            <Faq></Faq>
         </div>
     );
 };
