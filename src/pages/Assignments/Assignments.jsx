@@ -10,6 +10,7 @@ import { Link } from "react-router-dom";
 const Assignments = () => {
     const { user } = useAuth();
     const [assignments, setAssignments] = useState([]);
+    console.log(assignments);
 
     useEffect(() => {
         axios.get('http://localhost:5000/assignments')
@@ -58,74 +59,77 @@ const Assignments = () => {
 
 
     return (
-        <div className="overflow-x-auto max-w-[1400px] mx-auto">
-            <table className="table">
-                {/* head */}
-                <thead className="bg-gradient-to-r from-blue-100 via-purple-100 to-pink-100 text-black">
-                    <tr>
-                        <th className="py-6"> <FaCircle className="text-green-400"></FaCircle></th>
-                        <th className="py-6">Thumbnail</th>
-                        <th className="py-6">Title</th>
-                        <th className="py-6">Marks</th>
-                        <th className="py-6">Difficulty</th>
-                        <th className="py-6">Date</th>
-                        <th className="py-6">Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {
-                        assignments?.map((assignment, i) => <tr
-                            key={assignment._id}
-                            className="hover:bg-gray-100  transition duration-300 py-4">
-                            <th className="py-8">{i + 1}</th>
-                            <td className="py-8">
-                                <div>
-                                    <img
-                                        className="h-16 w-16 md:h-20 md:w-20 rounded-full"
-                                        src={assignment.thumbnail}
-                                        alt="thumbnail" />
-                                </div>
-                            </td>
-                            <td className="py-8">
-                                {assignment.title}
-                            </td>
-                            <td className="py-8">
-                                {assignment.marks}
-                            </td>
-                            <td className="py-8">
-                                {assignment.difficulty}
-                            </td>
-                            <td className="py-8">
-                                {assignment.date}
-                            </td>
-                            <th className="py-8">
-                                <div className=" flex gap-4 items-center">
-                                    <Link to={`/updateAssignment/${assignment._id}`}>
+        <div className="max-w-[1400px] mx-auto">
+            <h3 className="mb-4 font-bold">Assignment: {assignments.length}</h3>
+            <div className="overflow-x-auto ">
+                <table className="table">
+                    {/* head */}
+                    <thead className="bg-gradient-to-r from-blue-100 via-purple-100 to-pink-100 text-black">
+                        <tr>
+                            <th className="py-6"> <FaCircle className="text-green-400"></FaCircle></th>
+                            <th className="py-6">Thumbnail</th>
+                            <th className="py-6">Title</th>
+                            <th className="py-6">Marks</th>
+                            <th className="py-6">Difficulty</th>
+                            <th className="py-6">Date</th>
+                            <th className="py-6">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {
+                            assignments?.map((assignment, i) => <tr
+                                key={assignment._id}
+                                className="hover:bg-gray-100  transition duration-300 py-4">
+                                <th className="py-8">{i + 1}</th>
+                                <td className="py-8">
+                                    <div>
+                                        <img
+                                            className="h-16 w-16 md:h-20 md:w-20 rounded-full"
+                                            src={assignment.thumbnail}
+                                            alt="thumbnail" />
+                                    </div>
+                                </td>
+                                <td className="py-8">
+                                    {assignment.title}
+                                </td>
+                                <td className="py-8">
+                                    {assignment.marks}
+                                </td>
+                                <td className="py-8">
+                                    {assignment.difficulty}
+                                </td>
+                                <td className="py-8">
+                                    {assignment.date}
+                                </td>
+                                <th className="py-8">
+                                    <div className=" flex gap-4 items-center">
+                                        <Link to={`/updateAssignment/${assignment._id}`}>
+                                            <button
+                                                className="text-xl text-blue-500 hover:text-blue-500 hover:scale-110 transform transition duration-300 ease-in-out p-2 rounded-full hover:bg-blue-100 ">
+                                                <FaEdit />
+                                            </button>
+                                        </Link>
+
+                                        {/* Delete Button */}
                                         <button
-                                            className="text-xl text-blue-500 hover:text-blue-500 hover:scale-110 transform transition duration-300 ease-in-out p-2 rounded-full hover:bg-blue-100 ">
-                                            <FaEdit />
+                                            onClick={() => handleDelete(assignment._id)}
+                                            className="text-xl text-red-700 hover:text-red-500 hover:scale-110 transform transition duration-300 ease-in-out p-2 rounded-full hover:bg-red-100">
+                                            <RiDeleteBack2Fill />
                                         </button>
-                                    </Link>
 
-                                    {/* Delete Button */}
-                                    <button
-                                        onClick={() => handleDelete(assignment._id)}
-                                        className="text-xl text-red-700 hover:text-red-500 hover:scale-110 transform transition duration-300 ease-in-out p-2 rounded-full hover:bg-red-100">
-                                        <RiDeleteBack2Fill />
-                                    </button>
-
-                                    {/* View Button */}
-                                    <Link to={`/assignmentDetails/${assignment._id}`}>
-                                        <button className="text-xl text-green-700 hover:text-green-500 hover:scale-110 transform transition duration-300 ease-in-out p-2 rounded-full hover:bg-green-100">
-                                            <FaEye />
-                                        </button>
-                                    </Link>
-                                </div>
-                            </th>
-                        </tr>)
-                    }
-                </tbody>
-            </table>
+                                        {/* View Button */}
+                                        <Link to={`/assignmentDetails/${assignment._id}`}>
+                                            <button className="text-xl text-green-500 hover:text-green-500 hover:scale-110 transform transition duration-300 ease-in-out p-2 rounded-full hover:bg-green-100">
+                                                <FaEye />
+                                            </button>
+                                        </Link>
+                                    </div>
+                                </th>
+                            </tr>)
+                        }
+                    </tbody>
+                </table>
+            </div>
         </div>
     );
 };

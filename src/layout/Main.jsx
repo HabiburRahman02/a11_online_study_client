@@ -11,12 +11,12 @@ const Main = () => {
     const showBanner = location.pathname === '/'
     return (
         <div>
-            <div className="">
+            <div>
                 {noHeaderFooter || <Navbar></Navbar>}
                 {showBanner && <Banner></Banner>}
             </div>
 
-            <div>
+            <div className="">
                 <Outlet></Outlet>
             </div>
 

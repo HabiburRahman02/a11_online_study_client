@@ -18,7 +18,7 @@ const CreateAssignments = () => {
             .then(data => {
                 console.log(data.data)
                 if (data.data.insertedId) {
-                    toast.success('Assignments submitted')
+                    toast.success('Assignment created successfully')
                 }
             })
             .catch(error => toast.error(error.message))

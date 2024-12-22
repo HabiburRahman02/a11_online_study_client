@@ -54,10 +54,13 @@ const Navbar = () => {
                                 tabIndex={0}
                                 className="menu menu-sm dropdown-content bg-base-100 z-50 mt-3 w-52 p-2 shadow">
                                 <li>
-                                    <NavLink to='createAssignments'>Create Assignments</NavLink>
+                                    <NavLink to='/createAssignments'>Create Assignments</NavLink>
                                 </li>
                                 <li>
-                                    <NavLink to='myAssignment'>My Assignments</NavLink>
+                                    <NavLink to='/mySubmitted'>My Assignments</NavLink>
+                                </li>
+                                <li>
+                                    <NavLink to='/pendingAssignments'>Pending Assignments</NavLink>
                                 </li>
                                 <li>
                                     <button
