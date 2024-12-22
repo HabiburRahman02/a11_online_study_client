@@ -52,13 +52,13 @@ const Faq = () => {
                                 <p>Key features of online education platforms include video lectures, interactive assignments, quizzes, discussion forums, and access to study materials. They often support flexible schedules and a variety of courses to meet diverse learning needs.</p>
                             </div>
                         </div>
-                        <div className="collapse collapse-plus join-item py-3">
+                        {/* <div className="collapse collapse-plus join-item py-3">
                             <input type="radio" name="my-accordion-4" defaultChecked />
                             <div className="collapse-title text-xl md:text-2xl font-semibold"> What challenges do students face in online education?</div>
                             <div className="collapse-content text-lg">
                                 <p>Students may face challenges such as lack of motivation, technical issues, difficulty in accessing reliable internet, and feeling disconnected from peers and instructors. Some students may also struggle with self-discipline and managing their time effectively in an online environment.</p>
                             </div>
-                        </div>
+                        </div> */}
 
                     </div>
                 </div>
