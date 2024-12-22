@@ -28,7 +28,7 @@ const Navbar = () => {
                             <NavLink to='/' className={`hover:text-customGreen duration-500`}>Home</NavLink>
                         </li>
                         <li>
-                            <NavLink to='pendingAssignment' className={`hover:text-customGreen duration-500`}>Assignments</NavLink>
+                            <NavLink to='assignments' className={`hover:text-customGreen duration-500`}>Assignments</NavLink>
                         </li>
                     </ul>
                     <div>

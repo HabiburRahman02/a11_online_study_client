@@ -13,7 +13,6 @@ const Login = () => {
         const form = e.target
         const formData = new FormData(form);
         const data = Object.fromEntries(formData.entries());
-        console.log(data);
 
         loginUser(data.email, data.password)
             .then((result) => {

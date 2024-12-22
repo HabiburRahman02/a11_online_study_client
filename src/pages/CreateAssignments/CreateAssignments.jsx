@@ -1,11 +1,27 @@
 import { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import useAuth from "../../hooks/useAuth";
+import axios from "axios";
+import { toast } from "react-toastify";
 
 const CreateAssignments = () => {
+    const { user } = useAuth();
     const [startDate, setStartDate] = useState(new Date());
     const handleSubmit = e => {
+        e.preventDefault();
+        const form = e.target
+        const formData = new FormData(form);
+        const data = Object.fromEntries(formData.entries());
 
+        axios.post('http://localhost:5000/assignments', data)
+            .then(data => {
+                console.log(data.data)
+                if (data.data.insertedId) {
+                    toast.success('Assignments submitted')
+                }
+            })
+            .catch(error => toast.error(error.message))
     }
     return (
         <div className="min-h-screen flex items-center justify-center">
@@ -65,7 +81,8 @@ const CreateAssignments = () => {
                             <input
                                 type="text"
                                 name="name"
-                                disabled
+                                readOnly
+                                defaultValue={user?.displayName}
                                 className="input input-bordered w-full mt-1 bg-gray-100 cursor-not-allowed"
                             />
                         </div>
@@ -76,7 +93,8 @@ const CreateAssignments = () => {
                             <input
                                 type="email"
                                 name="email"
-                                disabled
+                                readOnly
+                                defaultValue={user?.email}
                                 className="input input-bordered w-full mt-1 bg-gray-100 cursor-not-allowed"
                             />
                         </div>
