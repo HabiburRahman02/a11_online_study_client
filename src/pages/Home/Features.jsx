@@ -30,7 +30,7 @@ const featuresData = [
 const Features = () => {
     return (
         <div className='my-20'>
-            <div className="bg-gradient-to-r from-blue-100 via-purple-100 to-pink-100 py-12">
+            <div className="bg-gradient-to-r from-blue-100 via-purple-100 to-pink-100 py-20">
                 <h2 className="text-4xl font-bold text-center text-gray-800 mb-12">
                     Explore Our Unique Features
                 </h2>

@@ -25,10 +25,10 @@ const Navbar = () => {
                 <div className="flex-none gap-2">
                     <ul className="flex gap-4 font-medium ">
                         <li>
-                            <NavLink to='pendingAssignment' className={`hover:text-customGreen duration-500`}>Assignments</NavLink>
+                            <NavLink to='/' className={`hover:text-customGreen duration-500`}>Home</NavLink>
                         </li>
                         <li>
-                            <NavLink to='pendingAssignment' className={`hover:text-customGreen duration-500`}>Pending_Ass</NavLink>
+                            <NavLink to='pendingAssignment' className={`hover:text-customGreen duration-500`}>Assignments</NavLink>
                         </li>
                     </ul>
                     <div>
@@ -54,7 +54,7 @@ const Navbar = () => {
                                 tabIndex={0}
                                 className="menu menu-sm dropdown-content bg-base-100 z-50 mt-3 w-52 p-2 shadow">
                                 <li>
-                                    <NavLink to='createAssignment'>Create Assignments</NavLink>
+                                    <NavLink to='createAssignments'>Create Assignments</NavLink>
                                 </li>
                                 <li>
                                     <NavLink to='myAssignment'>My Assignments</NavLink>
