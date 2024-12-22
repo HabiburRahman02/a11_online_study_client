@@ -1,32 +1,38 @@
+import axios from "axios";
 import { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import useAuth from "../../hooks/useAuth";
-import axios from "axios";
+import { useLoaderData, useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 
-const CreateAssignments = () => {
-    const { user } = useAuth();
+
+const UpdateAssignment = () => {
+    const { id } = useParams()
     const [startDate, setStartDate] = useState(new Date());
+    const assignments = useLoaderData();
+    const navigate = useNavigate();
+    const { title, marks, thumbnail, difficulty, email, name, date, description } = assignments
+
     const handleSubmit = e => {
         e.preventDefault();
         const form = e.target
         const formData = new FormData(form);
         const data = Object.fromEntries(formData.entries());
         console.log(data);
-        axios.post('http://localhost:5000/assignments', data)
+        axios.patch(`http://localhost:5000/assignmentById/${id}`, data)
             .then(data => {
-                console.log(data.data)
-                if (data.data.insertedId) {
-                    toast.success('Assignments submitted')
+                if (data.data.modifiedCount) {
+                    toast.success('Assignments modified successfully')
+                    navigate('/assignments')
                 }
             })
             .catch(error => toast.error(error.message))
     }
+
     return (
         <div className="min-h-screen flex items-center justify-center">
             <div className="max-w-4xl w-full bg-white shadow-xl rounded-lg overflow-hidden p-8 my-">
-                <h2 className="text-3xl font-bold text-center mb-6 text-gray-800">Create Assignment</h2>
+                <h2 className="text-3xl font-bold text-center mb-6 text-gray-800">Update Assignment</h2>
                 <form onSubmit={handleSubmit}>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
 
@@ -36,6 +42,7 @@ const CreateAssignments = () => {
                             <input
                                 type="text"
                                 name="title"
+                                defaultValue={title}
                                 placeholder="Enter assignment title"
                                 className="input input-bordered w-full mt-1"
                             />
@@ -47,6 +54,7 @@ const CreateAssignments = () => {
                             <input
                                 type="number"
                                 name="marks"
+                                defaultValue={marks}
                                 placeholder="Enter total marks"
                                 className="input input-bordered w-full mt-1"
                             />
@@ -58,6 +66,7 @@ const CreateAssignments = () => {
                             <input
                                 type="url"
                                 name="thumbnail"
+                                defaultValue={thumbnail}
                                 placeholder="Enter thumbnail URL"
                                 className="input input-bordered w-full mt-1"
                             />
@@ -68,6 +77,7 @@ const CreateAssignments = () => {
                             <label className="block text-sm font-medium text-gray-700">Difficulty Level</label>
                             <select
                                 name="difficulty"
+                                defaultValue={difficulty}
                                 className="select select-bordered w-full mt-1"
                             >
                                 <option value="easy">Easy</option>
@@ -82,7 +92,7 @@ const CreateAssignments = () => {
                                 type="text"
                                 name="name"
                                 readOnly
-                                defaultValue={user?.displayName}
+                                defaultValue={name}
                                 className="input input-bordered w-full mt-1 bg-gray-100 cursor-not-allowed"
                             />
                         </div>
@@ -94,7 +104,7 @@ const CreateAssignments = () => {
                                 type="email"
                                 name="email"
                                 readOnly
-                                defaultValue={user?.email}
+                                defaultValue={email}
                                 className="input input-bordered w-full mt-1 bg-gray-100 cursor-not-allowed"
                             />
                         </div>
@@ -107,6 +117,7 @@ const CreateAssignments = () => {
                             <DatePicker
                                 name="date"
                                 className="input input-bordered w-full mt-1"
+                                defaultValue={date}
                                 selected={startDate}
                                 onChange={(date) => setStartDate(date)}
                                 wrapperClassName="w-full"
@@ -120,6 +131,7 @@ const CreateAssignments = () => {
                         <label className="block text-sm font-medium text-gray-700">Description</label>
                         <textarea
                             name="description"
+                            defaultValue={description}
                             placeholder="Enter assignment description"
                             className="textarea textarea-bordered w-full mt-1"
                         />
@@ -128,7 +140,7 @@ const CreateAssignments = () => {
                     {/* Submit Button */}
                     <div className="text-center mt-8">
                         <button type="submit" className=" bg-customGreen hover:bg-[#03816e] text-white px-8 py-4 rounded-lg w-full ">
-                            Submit Assignment
+                            Update Assignment
                         </button>
                     </div>
                 </form>
@@ -137,4 +149,4 @@ const CreateAssignments = () => {
     );
 };
 
-export default CreateAssignments;
+export default UpdateAssignment;
