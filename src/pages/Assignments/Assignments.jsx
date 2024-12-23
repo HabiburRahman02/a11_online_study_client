@@ -104,7 +104,7 @@ const Assignments = () => {
                             <h4 className="text-xl font-semibold text-indigo-800 dark:text-white">{assignment.title}</h4>
                             <p className="text-sm text-gray-700 mt-2 dark:text-white">Total Marks: <span className="font-semibold text-indigo-600 dark:text-white">{assignment.marks}</span></p>
 
-                            <p className="text-sm text-gray-700 dark:text-white">Difficulty:  <div className="badge badge-secondary">{assignment.difficulty}</div></p>
+                            <div className="text-sm text-gray-700 dark:text-white">Difficulty:  <div className="badge badge-secondary">{assignment.difficulty}</div></div>
                             <p className="text-sm text-gray-700 dark:text-white">Date: <span className="font-semibold text-gray-900 dark:text-white">{assignment.date}</span></p>
 
 
