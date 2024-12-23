@@ -38,7 +38,7 @@ const UpdateAssignment = () => {
 
     return (
         <div className="min-h-screen flex items-center justify-center">
-            <div className="max-w-4xl w-full bg-white shadow-xl rounded-lg overflow-hidden p-8 my-">
+            <div className="max-w-4xl w-full bg-white dark:text-black shadow-xl rounded-lg overflow-hidden p-8 my-">
                 <h2 className="text-3xl font-bold text-center mb-6 text-gray-800">Update Assignment</h2>
                 <form onSubmit={handleSubmit}>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -51,7 +51,7 @@ const UpdateAssignment = () => {
                                 name="title"
                                 defaultValue={title}
                                 placeholder="Enter assignment title"
-                                className="input input-bordered w-full mt-1"
+                                className="focus:outline-none focus:ring-1 focus:ring-indigo-400 focus:border-indigo-400 input input-bordered w-full mt-1"
                             />
                         </div>
 
@@ -63,7 +63,7 @@ const UpdateAssignment = () => {
                                 name="marks"
                                 defaultValue={marks}
                                 placeholder="Enter total marks"
-                                className="input input-bordered w-full mt-1"
+                                className="focus:outline-none focus:ring-1 focus:ring-indigo-400 focus:border-indigo-400 input input-bordered w-full mt-1"
                             />
                         </div>
 
@@ -75,7 +75,7 @@ const UpdateAssignment = () => {
                                 name="thumbnail"
                                 defaultValue={thumbnail}
                                 placeholder="Enter thumbnail URL"
-                                className="input input-bordered w-full mt-1"
+                                className="focus:outline-none focus:ring-1 focus:ring-indigo-400 focus:border-indigo-400 input input-bordered w-full mt-1"
                             />
                         </div>
 
@@ -85,7 +85,7 @@ const UpdateAssignment = () => {
                             <select
                                 name="difficulty"
                                 defaultValue={difficulty}
-                                className="select select-bordered w-full mt-1"
+                                className="focus:outline-none focus:ring-1 focus:ring-indigo-400 focus:border-indigo-400 select select-bordered w-full mt-1"
                             >
                                 <option value="easy">Easy</option>
                                 <option value="medium">Medium</option>
@@ -100,7 +100,7 @@ const UpdateAssignment = () => {
                                 name="name"
                                 readOnly
                                 defaultValue={name}
-                                className="input input-bordered w-full mt-1 bg-gray-100 cursor-not-allowed"
+                                className="focus:outline-none focus:ring-1 focus:ring-indigo-400 focus:border-indigo-400 input input-bordered w-full mt-1 bg-gray-100 cursor-not-allowed"
                             />
                         </div>
 
@@ -112,7 +112,7 @@ const UpdateAssignment = () => {
                                 name="email"
                                 readOnly
                                 defaultValue={email}
-                                className="input input-bordered w-full mt-1 bg-gray-100 cursor-not-allowed"
+                                className="focus:outline-none focus:ring-1 focus:ring-indigo-400 focus:border-indigo-400 input input-bordered w-full mt-1 bg-gray-100 cursor-not-allowed"
                             />
                         </div>
                     </div>
@@ -123,7 +123,7 @@ const UpdateAssignment = () => {
                         <div className="relative w-full">
                             <DatePicker
                                 name="date"
-                                className="input input-bordered w-full mt-1"
+                                className="focus:outline-none focus:ring-1 focus:ring-indigo-400 focus:border-indigo-400 input input-bordered w-full mt-1"
                                 defaultValue={date}
                                 selected={startDate}
                                 onChange={(date) => setStartDate(date)}
@@ -140,7 +140,7 @@ const UpdateAssignment = () => {
                             name="description"
                             defaultValue={description}
                             placeholder="Enter assignment description"
-                            className="textarea textarea-bordered w-full mt-1"
+                            className="focus:outline-none focus:ring-1 focus:ring-indigo-400 focus:border-indigo-400 textarea textarea-bordered w-full mt-1"
                         />
                     </div>
 

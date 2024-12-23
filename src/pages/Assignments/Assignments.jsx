@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { FaCircle, FaEdit, FaEye } from 'react-icons/fa';
+import { FaEdit, FaEye } from 'react-icons/fa';
 import { RiDeleteBack2Fill } from "react-icons/ri";
 import { toast } from "react-toastify";
 import Swal from "sweetalert2";
@@ -10,20 +10,18 @@ import { Link } from "react-router-dom";
 const Assignments = () => {
     const { user } = useAuth();
     const [assignments, setAssignments] = useState([]);
-    const [search, setSearch] = useState('')
-    const [filter, setFilter] = useState('')
-    console.log(search, filter);
+    const [search, setSearch] = useState('');
+    const [filter, setFilter] = useState('');
 
     useEffect(() => {
         axios.get(`http://localhost:5000/assignmentBySearch?search=${search}&filter=${filter}`)
             .then(data => {
-                setAssignments(data.data)
+                setAssignments(data.data);
             })
     }, [search, filter]);
 
     const handleDelete = id => {
         const assignmentToDelete = assignments.find(ass => ass._id === id);
-        // console.log(assignmentToDelete?.email);
         if (assignmentToDelete?.email !== user?.email) {
             toast.error("You are not authorized to delete this assignment!");
             return;
@@ -41,7 +39,6 @@ const Assignments = () => {
             if (result.isConfirmed) {
                 axios.delete(`http://localhost:5000/assignments/${id}`)
                     .then(data => {
-                        console.log(data.data)
                         if (data.data.deletedCount) {
                             Swal.fire({
                                 title: "Deleted!",
@@ -54,16 +51,17 @@ const Assignments = () => {
                             setAssignments(remaining);
                         }
                     })
-                    .catch(error => toast.error(error.message))
+                    .catch(error => toast.error(error.message));
             }
         });
     }
 
     return (
         <div className="max-w-[1400px] mx-auto">
-            <div className="md:flex space-y-4 md:space-y-0 items-center justify-between gap-6 py-6 px-4 md:px-20">
-                <h3 className="md:w-1/6 text-center md:text-left font-medium text-indigo-700 text-lg">
-                    <span className="text-indigo-700 dark:text-white">Assignments: {assignments.length}</span>
+            <div className="md:flex space-y-4 md:space-y-0 items-center justify-between gap-6 py-6 px-6 md:px-20">
+                <h3 className="mb-4 text-xl max-w-xs md:mx-0 mx-auto font-semibold text-indigo-600 text-center p-3 border-l-4 border-indigo-400 border-r-4 bg-white shadow-md rounded-md">
+                    All Assignments:
+                    <span className="text-indigo-800 bg-indigo-50 px-3 py-1 rounded-full ml-2">{assignments.length}</span>
                 </h3>
 
                 <div className="md:w-2/6">
@@ -72,7 +70,7 @@ const Assignments = () => {
                         name="title"
                         onChange={e => setSearch(e.target.value)}
                         placeholder="Enter assignment title"
-                        className="w-full dark:text-black px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-indigo-400"
+                        className="w-full dark:text-black px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-1 focus:ring-indigo-400 focus:border-indigo-400"
                     />
                 </div>
 
@@ -81,7 +79,7 @@ const Assignments = () => {
                         name="difficulty"
                         value={filter}
                         onChange={e => setFilter(e.target.value)}
-                        className="w-full dark:text-black  px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-indigo-400"
+                        className="w-full dark:text-black px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-1 focus:ring-indigo-400 focus:border-indigo-400"
                     >
                         <option value='' disabled>Filter by difficulty</option>
                         <option value="easy">Easy</option>
@@ -90,74 +88,52 @@ const Assignments = () => {
                     </select>
                 </div>
             </div>
-            <div className="overflow-x-auto ">
-                <table className="table">
-                    {/* head */}
-                    <thead className="bg-gradient-to-r from-blue-100 via-purple-100 to-pink-100 text-black">
-                        <tr>
-                            <th className="py-6"> <FaCircle className="text-green-400"></FaCircle></th>
-                            <th className="py-6">Thumbnail</th>
-                            <th className="py-6">Title</th>
-                            <th className="py-6">Marks</th>
-                            <th className="py-6">Difficulty</th>
-                            <th className="py-6">Date</th>
-                            <th className="py-6">Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {
-                            assignments?.map((assignment, i) => <tr
-                                key={assignment._id}
-                                className="hover:bg-gray-100  transition duration-300 py-4 hover:text-black">
-                                <th className="py-8">{i + 1}</th>
-                                <td className="py-8">
-                                    <div>
-                                        <img
-                                            className="h-16 w-16 md:h-20 md:w-20 rounded-full"
-                                            src={assignment.thumbnail}
-                                            alt="thumbnail" />
-                                    </div>
-                                </td>
-                                <td className="py-8">
-                                    {assignment.title}
-                                </td>
-                                <td className="py-8">
-                                    {assignment.marks}
-                                </td>
-                                <td className="py-8">
-                                    {assignment.difficulty}
-                                </td>
-                                <td className="py-8">
-                                    {assignment.date}
-                                </td>
-                                <th className="py-8">
-                                    <div className=" flex gap-4 items-center">
-                                        <Link to={`/updateAssignment/${assignment._id}`}>
-                                            <button
-                                                className="text-xl text-blue-500 hover:text-blue-500 hover:scale-110 transform transition duration-300 ease-in-out p-2 rounded-full hover:bg-blue-100 ">
-                                                <FaEdit />
-                                            </button>
-                                        </Link>
 
-                                        {/* Delete Button */}
-                                        <button
-                                            onClick={() => handleDelete(assignment._id)}
-                                            className="text-xl text-red-700 hover:text-red-500 hover:scale-110 transform transition duration-300 ease-in-out p-2 rounded-full hover:bg-red-100">
-                                            <RiDeleteBack2Fill />
-                                        </button>
+            {/* Card Layout */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {
+                    assignments?.map((assignment) => (
+                        <div key={assignment._id} className="space-y-2 bg-white border shadow-lg rounded-lg p-6 hover:shadow-xl transition-transform duration-500 ease-in-out mx-6 md:mx-0  hover:scale-105 dark:bg-gray-700 dark:shadow-2xl">
+                            <div className="flex items-center justify-center mb-4">
+                                <img
+                                    className="w-full h-60 rounded-lg object-cover"
+                                    src={assignment.thumbnail}
+                                    alt="Thumbnail"
+                                />
+                            </div>
+                            <h4 className="text-xl font-semibold text-indigo-800 dark:text-white">{assignment.title}</h4>
+                            <p className="text-sm text-gray-700 mt-2 dark:text-white">Total Marks: <span className="font-semibold text-indigo-600 dark:text-white">{assignment.marks}</span></p>
 
-                                        {/* View Button */}
-                                        <Link to={`/assignmentDetails/${assignment._id}`}>
-                                            <button className="text-xl text-green-500 hover:text-green-500 hover:scale-110 transform transition duration-300 ease-in-out p-2 rounded-full hover:bg-green-100">
-                                                <FaEye />
-                                            </button>
-                                        </Link>
-                                    </div>
-                                </th>
-                            </tr>)
-                        }
-                    </tbody>
-                </table>
+                            <p className="text-sm text-gray-700 dark:text-white">Difficulty:  <div className="badge badge-secondary">{assignment.difficulty}</div></p>
+                            <p className="text-sm text-gray-700 dark:text-white">Date: <span className="font-semibold text-gray-900 dark:text-white">{assignment.date}</span></p>
+
+
+                            {/* Actions */}
+                            <div className=" flex gap-4 justify-center">
+                                <Link to={`/updateAssignment/${assignment._id}`}>
+                                    <button
+                                        className="text-xl text-blue-500 hover:text-blue-700 p-2 rounded-full hover:bg-blue-100 transition duration-300 ease-in-out"
+                                    >
+                                        <FaEdit />
+                                    </button>
+                                </Link>
+                                <button
+                                    onClick={() => handleDelete(assignment._id)}
+                                    className="text-xl text-red-500 hover:text-red-700 p-2 rounded-full hover:bg-red-100 transition duration-300 ease-in-out"
+                                >
+                                    <RiDeleteBack2Fill />
+                                </button>
+                                <Link to={`/assignmentDetails/${assignment._id}`}>
+                                    <button
+                                        className="text-xl text-green-500 hover:text-green-700 p-2 rounded-full hover:bg-green-100 transition duration-300 ease-in-out"
+                                    >
+                                        <FaEye />
+                                    </button>
+                                </Link>
+                            </div>
+                        </div>
+                    ))
+                }
             </div>
         </div>
     );

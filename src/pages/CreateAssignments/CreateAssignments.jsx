@@ -28,8 +28,8 @@ const CreateAssignments = () => {
             .catch(error => toast.error(error.message))
     }
     return (
-        <div className="min-h-screen flex items-center justify-center">
-            <div className="max-w-4xl w-full bg-white shadow-xl rounded-lg overflow-hidden p-8 my-">
+        <div className="min-h-screen flex items-center justify-center ">
+            <div className="max-w-4xl w-full bg-white shadow-xl border border-gray-200  dark:text-black rounded-lg overflow-hidden p-8 my-">
                 <h2 className="text-3xl font-bold text-center mb-6 text-gray-800">Create Assignment</h2>
                 <form onSubmit={handleSubmit}>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -41,7 +41,7 @@ const CreateAssignments = () => {
                                 type="text"
                                 name="title"
                                 placeholder="Enter assignment title"
-                                className="input input-bordered w-full mt-1"
+                                className="focus:outline-none focus:ring-1 focus:ring-indigo-400 focus:border-indigo-400 input input-bordered w-full mt-1"
                             />
                         </div>
 
@@ -52,7 +52,7 @@ const CreateAssignments = () => {
                                 type="number"
                                 name="marks"
                                 placeholder="Enter total marks"
-                                className="input input-bordered w-full mt-1"
+                                className="focus:outline-none focus:ring-1 focus:ring-indigo-400 focus:border-indigo-400 input input-bordered w-full mt-1"
                             />
                         </div>
 
@@ -63,7 +63,7 @@ const CreateAssignments = () => {
                                 type="url"
                                 name="thumbnail"
                                 placeholder="Enter thumbnail URL"
-                                className="input input-bordered w-full mt-1"
+                                className="focus:outline-none focus:ring-1 focus:ring-indigo-400 focus:border-indigo-400 input input-bordered w-full mt-1"
                             />
                         </div>
 
@@ -72,7 +72,7 @@ const CreateAssignments = () => {
                             <label className="block text-sm font-medium text-gray-700">Difficulty Level</label>
                             <select
                                 name="difficulty"
-                                className="select select-bordered w-full mt-1"
+                                className="focus:outline-none focus:ring-1 focus:ring-indigo-400 focus:border-indigo-400 select select-bordered w-full mt-1"
                             >
                                 <option value="easy">Easy</option>
                                 <option value="medium">Medium</option>
@@ -87,7 +87,7 @@ const CreateAssignments = () => {
                                 name="name"
                                 readOnly
                                 defaultValue={user?.displayName}
-                                className="input input-bordered w-full mt-1 bg-gray-100 cursor-not-allowed"
+                                className="focus:outline-none focus:ring-1 focus:ring-indigo-400 focus:border-indigo-400 input input-bordered w-full mt-1 bg-gray-100 cursor-not-allowed"
                             />
                         </div>
 
@@ -99,7 +99,7 @@ const CreateAssignments = () => {
                                 name="email"
                                 readOnly
                                 defaultValue={user?.email}
-                                className="input input-bordered w-full mt-1 bg-gray-100 cursor-not-allowed"
+                                className="focus:outline-none focus:ring-1 focus:ring-indigo-400 focus:border-indigo-400 input input-bordered w-full mt-1 bg-gray-100 cursor-not-allowed"
                             />
                         </div>
                     </div>
@@ -110,7 +110,7 @@ const CreateAssignments = () => {
                         <div className="relative w-full">
                             <DatePicker
                                 name="date"
-                                className="input input-bordered w-full mt-1"
+                                className="focus:outline-none focus:ring-1 focus:ring-indigo-400 focus:border-indigo-400 input input-bordered w-full mt-1"
                                 selected={startDate}
                                 onChange={(date) => setStartDate(date)}
                                 wrapperClassName="w-full"
@@ -125,7 +125,7 @@ const CreateAssignments = () => {
                         <textarea
                             name="description"
                             placeholder="Enter assignment description"
-                            className="textarea textarea-bordered w-full mt-1"
+                            className="focus:outline-none focus:ring-1 focus:ring-indigo-400 focus:border-indigo-400 textarea textarea-bordered w-full mt-1"
                         />
                     </div>
 

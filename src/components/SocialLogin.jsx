@@ -22,7 +22,7 @@ const SocialLogin = () => {
     return (
         <button
             onClick={handleGoogleLogin}
-            className="btn btn-outline hover:text-black w-full hover:bg-gray-100">
+            className="btn btn-outline hover:text-black border border-blue-500 w-full hover:bg-gray-100">
             Continue with Google
         </button>
     );

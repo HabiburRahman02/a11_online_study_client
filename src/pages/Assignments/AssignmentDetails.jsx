@@ -3,7 +3,7 @@ import { Link, useLoaderData } from "react-router-dom";
 const AssignmentDetails = () => {
     const assignment = useLoaderData();
     return (
-        <div className="max-w-3xl mx-auto p-6 bg-white shadow-md rounded-md">
+        <div className="max-w-3xl mx-auto p-6 bg-white shadow-md rounded-md dark:text-black">
             <img className="h-64 w-full object-cover rounded-lg mb-4" src={assignment.thumbnail} alt="" />
             <h1 className="text-2xl font-bold mb-4 text-center">Assignment Details</h1>
             <div className="mb-4">

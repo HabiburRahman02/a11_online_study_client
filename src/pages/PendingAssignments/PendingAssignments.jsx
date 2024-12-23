@@ -17,8 +17,11 @@ const PendingAssignments = () => {
     }, []);
 
     return (
-        <div className="max-w-[1200px] mx-auto">
-            <h3 className="mb-4 font-bold">Pending Assignment: {assignments.length}</h3>
+        <div className="max-w-[1400px] mx-auto">
+            <h3 className="mb-4 text-xl max-w-xs mx-auto font-semibold text-indigo-600  text-center p-4 border-l-4 border-indigo-400 border-r-4  bg-white shadow-md rounded-md">
+                Pending Assignments:
+                <span className="text-indigo-800 bg-indigo-50 px-3 py-1 rounded-full ml-2">{assignments.length}</span>
+            </h3>
             <div className="overflow-x-auto ">
                 <table className="table">
                     {/* head */}
@@ -35,7 +38,7 @@ const PendingAssignments = () => {
                         {
                             assignments?.map((assignment, i) => <tr
                                 key={assignment._id}
-                                className="hover:bg-gray-100  transition duration-300 py-4">
+                                className="hover:bg-gray-100  transition duration-500 hover:text-black py-4">
                                 <th className="py-8">{i + 1}</th>
                                 <td className="py-8">
                                     {assignment.title}

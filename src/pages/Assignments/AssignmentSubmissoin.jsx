@@ -1,11 +1,11 @@
 import axios from "axios";
 import useAuth from "../../hooks/useAuth";
 import { toast } from "react-toastify";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 
 const AssignmentSubmission = () => {
     const submission = useLoaderData();
-    console.log(submission);
+    const navigate = useNavigate();
     const { user } = useAuth();
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -23,6 +23,7 @@ const AssignmentSubmission = () => {
                 console.log(data.data)
                 if (data.data.insertedId) {
                     toast.success('Assignments submitted')
+                    navigate('/assignments')
                 }
                 form.reset();
             })
@@ -30,7 +31,7 @@ const AssignmentSubmission = () => {
     };
 
     return (
-        <div className="font-semibold p-6 max-w-2xl mx-auto bg-white border border-gray-200 rounded-md shadow-md">
+        <div className="font-semibold p-6 max-w-2xl mx-auto bg-white dark:text-black border border-gray-200 rounded-md shadow-md">
             <h2 className="text-xl font-bold mb-4 text-center">Submit Your Assignment</h2>
 
             <div className="mb-4 text-center text-green-500"></div>
@@ -44,7 +45,7 @@ const AssignmentSubmission = () => {
                         type="url"
                         name="googleDocsLink"
                         required
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm"
+                        className="focus:outline-none focus:ring-1 focus:ring-indigo-400 focus:border-indigo-400 w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm"
                         placeholder="Enter Google Docs link"
                     />
                 </div>
@@ -56,7 +57,7 @@ const AssignmentSubmission = () => {
                     <textarea
                         name="quickNote"
                         rows="4"
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm"
+                        className="focus:outline-none focus:ring-1 focus:ring-indigo-400 focus:border-indigo-400 w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm"
                         placeholder="Enter a quick note (optional)"
                     />
                 </div>
@@ -71,7 +72,7 @@ const AssignmentSubmission = () => {
 
                         readOnly
                         defaultValue={'Pending'}
-                        className="w-full px-3 py-2 border border-gray-300 cursor-not-allowed rounded-md bg-gray-100"
+                        className="focus:outline-none focus:ring-1 focus:ring-indigo-400 focus:border-indigo-400 w-full px-3 py-2 border border-gray-300 cursor-not-allowed rounded-md bg-gray-100"
                     />
                 </div>
                 <div className="mb-6">
@@ -84,7 +85,7 @@ const AssignmentSubmission = () => {
 
                         readOnly
                         defaultValue={user?.email}
-                        className="w-full px-3 py-2 border border-gray-300 cursor-not-allowed rounded-md bg-gray-100"
+                        className="focus:outline-none focus:ring-1 focus:ring-indigo-400 focus:border-indigo-400 w-full px-3 py-2 border border-gray-300 cursor-not-allowed rounded-md bg-gray-100"
                     />
                 </div>
 

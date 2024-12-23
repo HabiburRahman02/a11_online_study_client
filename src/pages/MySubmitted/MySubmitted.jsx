@@ -17,45 +17,51 @@ const MySubmitted = () => {
 
 
     return (
-        <div className="overflow-x-auto max-w-[1400px] mx-auto">
-            <table className="table">
-                {/* head */}
-                <thead className="bg-gradient-to-r from-blue-100 via-purple-100 to-pink-100 text-black">
-                    <tr>
-                        <th className="py-6"> <FaCircle className="text-green-400"></FaCircle></th>
-                        <th className="py-6">Title</th>
-                        <th className="py-6">Assignment Status</th>
-                        <th className="py-6">Assignment Marks</th>
-                        <th className="py-6">Obtained Marks</th>
-                        <th className="py-6">Feedback</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {
-                        submissions?.map((submission, i) => <tr
-                            key={submission._id}
-                            className="hover:bg-gray-100  transition duration-300 py-4">
-                            <th className="py-8">{i + 1}</th>
-                            <td className="py-8">
-                                {submission.title}
-                            </td>
-                            <td className="py-8">
-                                {submission.status}
-                            </td>
-                            <td className="py-8">
-                                {submission.marks}
-                            </td>
-                            <td className="py-8">
-                                {submission.obtained_marks || 'N/A'}
-                            </td>
-                            <td className="py-8">
-                                {submission.feedback || 'N/A'}
-                            </td>
+        <div className="max-w-[1400px] mx-auto">
+            <h3 className="mb-4 text-xl max-w-xs mx-auto font-semibold text-indigo-600  text-center p-4 border-l-4 border-indigo-400 border-r-4  bg-white shadow-md rounded-md">
+                My Assignments:
+                <span className="text-indigo-800 bg-indigo-50 px-3 py-1 rounded-full ml-2">{submissions.length}</span>
+            </h3>
+            <div className="overflow-x-auto ">
+                <table className="table">
+                    {/* head */}
+                    <thead className="bg-gradient-to-r from-blue-100 via-purple-100 to-pink-100 text-black">
+                        <tr>
+                            <th className="py-6"> <FaCircle className="text-green-400"></FaCircle></th>
+                            <th className="py-6">Title</th>
+                            <th className="py-6">Assignment Status</th>
+                            <th className="py-6">Assignment Marks</th>
+                            <th className="py-6">Obtained Marks</th>
+                            <th className="py-6">Feedback</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {
+                            submissions?.map((submission, i) => <tr
+                                key={submission._id}
+                                className="hover:bg-gray-100  transition duration-500 hover:text-black py-4">
+                                <th className="py-8">{i + 1}</th>
+                                <td className="py-8">
+                                    {submission.title}
+                                </td>
+                                <td className="py-8">
+                                    {submission.status}
+                                </td>
+                                <td className="py-8">
+                                    {submission.marks}
+                                </td>
+                                <td className="py-8">
+                                    {submission.obtained_marks || 'N/A'}
+                                </td>
+                                <td className="py-8">
+                                    {submission.feedback || 'N/A'}
+                                </td>
 
-                        </tr>)
-                    }
-                </tbody>
-            </table>
+                            </tr>)
+                        }
+                    </tbody>
+                </table>
+            </div>
         </div>
     );
 };

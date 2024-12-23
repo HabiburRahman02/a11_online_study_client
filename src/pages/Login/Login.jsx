@@ -27,7 +27,7 @@ const Login = () => {
     }
     return (
         <div>
-            <div className="md:flex gap-12 min-h-screen bg-white shadow-lg rounded-lg overflow-hidden items-center max-w-5xl mx-auto px-6 py-12">
+            <div className="md:flex gap-12 min-h-screen bg-white dark:text-black shadow-lg rounded-lg overflow-hidden items-center max-w-5xl mx-auto px-6 py-12">
                 {/* Left Section: Image */}
                 <div className="md:w-1/2 mb-6 md:mb-0">
 
