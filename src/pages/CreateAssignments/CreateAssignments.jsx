@@ -127,7 +127,7 @@ const CreateAssignments = () => {
 
                     {/* Submit Button */}
                     <div className="text-center mt-8">
-                        <button type="submit" className=" bg-customGreen hover:bg-[#03816e] text-white px-8 py-4 rounded-lg w-full ">
+                        <button type="submit" className="font-semibold bg-customGreen hover:bg-[#03816e] text-white px-8 py-4 rounded-lg w-full ">
                             Submit Assignment
                         </button>
                     </div>

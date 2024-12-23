@@ -1,6 +1,7 @@
 import { Link, NavLink } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import { toast } from "react-toastify";
+import logo from '../../assets/icon/logo.png'
 
 const Navbar = () => {
     const { user, logOut } = useAuth();
@@ -18,8 +19,9 @@ const Navbar = () => {
         <nav className=" bg-base-100">
             <div className="navbar max-w-[1400px] mx-auto py-4">
                 <div className="flex-1">
-                    <Link to='/' className="font-semibold text-2xl">
-                        Online<span className="text-green-500">Study</span>
+                    <Link to='/' className="font-semibold text-2xl flex items-center gap-2">
+                        <img className="" src={logo} alt="" />
+                        <span className="hidden sm:block"> Online<span className="text-green-500">Study</span></span>
                     </Link>
                 </div>
                 <div className="flex-none gap-2">

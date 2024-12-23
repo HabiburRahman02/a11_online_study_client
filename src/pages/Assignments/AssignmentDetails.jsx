@@ -17,7 +17,7 @@ const AssignmentDetails = () => {
             </div>
 
             <Link to={`/assignmentSubmission/${assignment._id}`}>
-                <button className="bg-customGreen hover:bg-[#03816e] text-white px-8 py-2 rounded-full">Take Assignment</button>
+                <button className="font-semibold bg-customGreen hover:bg-[#03816e] text-white px-8 py-2 rounded-full">Take Assignment</button>
             </Link>
         </div>
     );

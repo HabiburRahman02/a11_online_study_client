@@ -30,7 +30,7 @@ const AssignmentSubmission = () => {
     };
 
     return (
-        <div className="p-6 max-w-2xl mx-auto bg-white border border-gray-200 rounded-md shadow-md">
+        <div className="font-semibold p-6 max-w-2xl mx-auto bg-white border border-gray-200 rounded-md shadow-md">
             <h2 className="text-xl font-bold mb-4 text-center">Submit Your Assignment</h2>
 
             <div className="mb-4 text-center text-green-500"></div>

@@ -46,7 +46,7 @@ const MySubmitted = () => {
                                 {submission.marks}
                             </td>
                             <td className="py-8">
-                                {submission.obtainMarks || 'N/A'}
+                                {submission.obtained_marks || 'N/A'}
                             </td>
                             <td className="py-8">
                                 {submission.feedback || 'N/A'}

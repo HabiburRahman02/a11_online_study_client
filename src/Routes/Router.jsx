@@ -64,7 +64,7 @@ const router = createBrowserRouter([
             {
                 path: '/giveMark/:id',
                 element: <PrivateRoute><GiveMark></GiveMark></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/assignmentById/${params.id}`)
+                // loader: ({ params }) => fetch(`http://localhost:5000/assignmentById/${params.id}`)
             },
         ]
     },
