@@ -62,8 +62,8 @@ const Assignments = () => {
     return (
         <div className="max-w-[1400px] mx-auto">
             <div className="md:flex space-y-4 md:space-y-0 items-center justify-between gap-6 py-6 px-4 md:px-20">
-                <h3 className="md:w-1/6 text-center md:text-left font-bold text-indigo-700 text-lg">
-                    <span className="text-indigo-900">Assignments: {assignments.length}</span>
+                <h3 className="md:w-1/6 text-center md:text-left font-medium text-indigo-700 text-lg">
+                    <span className="text-indigo-700 dark:text-white">Assignments: {assignments.length}</span>
                 </h3>
 
                 <div className="md:w-2/6">
@@ -72,16 +72,18 @@ const Assignments = () => {
                         name="title"
                         onChange={e => setSearch(e.target.value)}
                         placeholder="Enter assignment title"
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-indigo-400"
+                        className="w-full dark:text-black px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-indigo-400"
                     />
                 </div>
 
                 <div className="md:w-1/6">
                     <select
                         name="difficulty"
+                        value={filter}
                         onChange={e => setFilter(e.target.value)}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-indigo-400"
+                        className="w-full dark:text-black  px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-indigo-400"
                     >
+                        <option value='' disabled>Filter by difficulty</option>
                         <option value="easy">Easy</option>
                         <option value="medium">Medium</option>
                         <option value="hard">Hard</option>
@@ -106,7 +108,7 @@ const Assignments = () => {
                         {
                             assignments?.map((assignment, i) => <tr
                                 key={assignment._id}
-                                className="hover:bg-gray-100  transition duration-300 py-4">
+                                className="hover:bg-gray-100  transition duration-300 py-4 hover:text-black">
                                 <th className="py-8">{i + 1}</th>
                                 <td className="py-8">
                                     <div>
