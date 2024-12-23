@@ -10,14 +10,16 @@ import { Link } from "react-router-dom";
 const Assignments = () => {
     const { user } = useAuth();
     const [assignments, setAssignments] = useState([]);
-    console.log(assignments);
+    const [search, setSearch] = useState('')
+    const [filter, setFilter] = useState('')
+    console.log(search, filter);
 
     useEffect(() => {
-        axios.get('http://localhost:5000/assignments')
+        axios.get(`http://localhost:5000/assignmentBySearch?search=${search}&filter=${filter}`)
             .then(data => {
                 setAssignments(data.data)
             })
-    }, []);
+    }, [search, filter]);
 
     const handleDelete = id => {
         const assignmentToDelete = assignments.find(ass => ass._id === id);
@@ -57,7 +59,6 @@ const Assignments = () => {
         });
     }
 
-
     return (
         <div className="max-w-[1400px] mx-auto">
             <div className="md:flex space-y-4 md:space-y-0 items-center justify-between gap-6 py-6 px-4 md:px-20">
@@ -69,6 +70,7 @@ const Assignments = () => {
                     <input
                         type="text"
                         name="title"
+                        onChange={e => setSearch(e.target.value)}
                         placeholder="Enter assignment title"
                         className="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-indigo-400"
                     />
@@ -77,6 +79,7 @@ const Assignments = () => {
                 <div className="md:w-1/6">
                     <select
                         name="difficulty"
+                        onChange={e => setFilter(e.target.value)}
                         className="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-indigo-400"
                     >
                         <option value="easy">Easy</option>

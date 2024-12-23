@@ -16,7 +16,7 @@ const Main = () => {
                 {showBanner && <Banner></Banner>}
             </div>
 
-            <div className="">
+            <div className="min-h-64">
                 <Outlet></Outlet>
             </div>
 
