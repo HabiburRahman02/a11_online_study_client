@@ -1,12 +1,13 @@
 import Lottie from 'lottie-react';
 import lottieImg from '../../assets/login/login.json'
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import SocialLogin from '../../components/SocialLogin';
 import useAuth from '../../hooks/useAuth';
 import { toast } from 'react-toastify';
 const Login = () => {
     const { loginUser } = useAuth();
     const navigate = useNavigate();
+    const location = useLocation();
 
     const handleLogin = e => {
         e.preventDefault();
@@ -18,7 +19,7 @@ const Login = () => {
             .then((result) => {
                 console.log(result);
                 toast.success('Login user successfully')
-                navigate('/')
+                navigate(location.state || '/')
             })
             .catch(error => {
                 toast.error(`Wrong email & password or ${error.message}`);

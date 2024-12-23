@@ -4,10 +4,13 @@ import "react-datepicker/dist/react-datepicker.css";
 import useAuth from "../../hooks/useAuth";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 const CreateAssignments = () => {
     const { user } = useAuth();
     const [startDate, setStartDate] = useState(new Date());
+    const navigate = useNavigate();
+
     const handleSubmit = e => {
         e.preventDefault();
         const form = e.target
@@ -19,6 +22,7 @@ const CreateAssignments = () => {
                 console.log(data.data)
                 if (data.data.insertedId) {
                     toast.success('Assignment created successfully')
+                    navigate('/assignments')
                 }
             })
             .catch(error => toast.error(error.message))

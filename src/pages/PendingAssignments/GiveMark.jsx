@@ -1,14 +1,16 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
+import useAuth from "../../hooks/useAuth";
 
 
 
 const GiveMark = () => {
+    const { user } = useAuth();
     const { id } = useParams();
     const [assignment, setAssignment] = useState([]);
-    console.log(assignment);
+    const navigate = useNavigate();
 
     useEffect(() => {
         axios.get(`http://localhost:5000/giveMarkSpecificUser/${id}`)
@@ -27,9 +29,17 @@ const GiveMark = () => {
             feedback,
             status: 'Completed'
         };
+
+        // same user validation
+        if (assignment?.email === user?.email) {
+            toast.error('You can not mark you assignment')
+            return navigate('/pendingAssignments')
+        }
+
         axios.patch(`http://localhost:5000/markData/${id}`, giveMarkData)
             .then(data => {
                 if (data.data.modifiedCount) {
+                    navigate('/pendingAssignments')
                     toast.success('Given marks')
                 }
                 console.log(data.data);

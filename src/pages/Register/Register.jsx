@@ -1,12 +1,13 @@
 import Lottie from 'lottie-react';
 import lottieImg from '../../assets/login/register.json'
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import SocialLogin from '../../components/SocialLogin';
 import { toast } from 'react-toastify';
 import useAuth from '../../hooks/useAuth';
 const Register = () => {
     const { createUser } = useAuth();
     const navigate = useNavigate();
+    const location = useLocation();
 
     const handleRegister = e => {
         e.preventDefault();
@@ -26,7 +27,7 @@ const Register = () => {
         createUser(data.email, data.password)
             .then(() => {
                 toast.success('Create user successfully')
-                navigate('/')
+                navigate(location.state || '/')
             })
             .catch(error => {
                 toast.error(error.message);

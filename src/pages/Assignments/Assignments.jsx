@@ -20,6 +20,13 @@ const Assignments = () => {
     }, []);
 
     const handleDelete = id => {
+        const assignmentToDelete = assignments.find(ass => ass._id === id);
+        // console.log(assignmentToDelete?.email);
+        if (assignmentToDelete?.email !== user?.email) {
+            toast.error("You are not authorized to delete this assignment!");
+            return;
+        }
+
         Swal.fire({
             title: "Are you sure?",
             text: "You won't be able to revert this!",
@@ -30,13 +37,6 @@ const Assignments = () => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                const assignmentToDelete = assignments.find(ass => ass._id === id);
-                console.log(assignmentToDelete?.email);
-                if (assignmentToDelete?.email !== user?.email) {
-                    toast.error("You are not authorized to delete this assignment!");
-                    return;
-                }
-
                 axios.delete(`http://localhost:5000/assignments/${id}`)
                     .then(data => {
                         console.log(data.data)
@@ -60,7 +60,31 @@ const Assignments = () => {
 
     return (
         <div className="max-w-[1400px] mx-auto">
-            <h3 className="mb-4 font-bold">Assignment: {assignments.length}</h3>
+            <div className="md:flex space-y-4 md:space-y-0 items-center justify-between gap-6 py-6 px-4 md:px-20">
+                <h3 className="md:w-1/6 text-center md:text-left font-bold text-indigo-700 text-lg">
+                    <span className="text-indigo-900">Assignments: {assignments.length}</span>
+                </h3>
+
+                <div className="md:w-2/6">
+                    <input
+                        type="text"
+                        name="title"
+                        placeholder="Enter assignment title"
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-indigo-400"
+                    />
+                </div>
+
+                <div className="md:w-1/6">
+                    <select
+                        name="difficulty"
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-indigo-400"
+                    >
+                        <option value="easy">Easy</option>
+                        <option value="medium">Medium</option>
+                        <option value="hard">Hard</option>
+                    </select>
+                </div>
+            </div>
             <div className="overflow-x-auto ">
                 <table className="table">
                     {/* head */}

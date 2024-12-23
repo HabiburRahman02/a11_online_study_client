@@ -4,9 +4,11 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useLoaderData, useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
+import useAuth from "../../hooks/useAuth";
 
 
 const UpdateAssignment = () => {
+    const { user } = useAuth();
     const { id } = useParams()
     const [startDate, setStartDate] = useState(new Date());
     const assignments = useLoaderData();
@@ -18,7 +20,12 @@ const UpdateAssignment = () => {
         const form = e.target
         const formData = new FormData(form);
         const data = Object.fromEntries(formData.entries());
-        console.log(data);
+
+        if (data?.email !== user?.email) {
+            toast.error('You can not update other user created assignment')
+            return navigate('/assignments')
+        }
+
         axios.patch(`http://localhost:5000/assignmentById/${id}`, data)
             .then(data => {
                 if (data.data.modifiedCount) {
