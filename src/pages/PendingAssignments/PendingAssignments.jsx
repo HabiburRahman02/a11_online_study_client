@@ -39,17 +39,17 @@ const PendingAssignments = () => {
                             assignments?.map((assignment, i) => <tr
                                 key={assignment._id}
                                 className="hover:bg-gray-100  transition duration-500 hover:text-black py-4">
-                                <th className="py-8">{i + 1}</th>
-                                <td className="py-8">
+                                <th className="py-8 md:py-12">{i + 1}</th>
+                                <td className="py-8 md:py-12">
                                     {assignment.title}
                                 </td>
-                                <td className="py-8">
+                                <td className="py-8 md:py-12">
                                     {assignment.marks}
                                 </td>
-                                <td className="py-8">
+                                <td className="py-8 md:py-12">
                                     {assignment.examiner_name || assignment.email}
                                 </td>
-                                <td>
+                                <td className="py-8 md:py-12">
                                     <Link to={`/giveMark/${assignment._id}`}>
                                         <button className=" bg-customGreen py-2 px-6  text-white font-medium 
                                     border-[2px]

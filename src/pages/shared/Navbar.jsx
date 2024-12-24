@@ -1,4 +1,4 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import { toast } from "react-toastify";
 import logo from '../../assets/icon/logo.png'
@@ -6,6 +6,8 @@ import logo from '../../assets/icon/logo.png'
 
 const Navbar = () => {
     const { user, logOut } = useAuth();
+    const location = useLocation();
+    const style = location.pathname === '/';
 
     const handleDarkTheme = () => {
         document.documentElement.classList.toggle('dark')
@@ -23,7 +25,7 @@ const Navbar = () => {
 
     return (
         <nav className="dark:text-white dark:bg-gray-700">
-            <div className="navbar max-w-[1400px] mx-auto py-4">
+            <div className={`mb-12 ${style && 'mb-0'} navbar max-w-[1400px] mx-auto py-4 border-b-2 border-b-gray-200`}>
                 <div className="flex-1">
                     <Link to='/' className="font-semibold text-2xl flex items-center gap-2">
                         <img className="" src={logo} alt="" />

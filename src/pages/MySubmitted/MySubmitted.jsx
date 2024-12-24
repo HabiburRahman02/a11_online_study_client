@@ -40,20 +40,29 @@ const MySubmitted = () => {
                             submissions?.map((submission, i) => <tr
                                 key={submission._id}
                                 className="hover:bg-gray-100  transition duration-500 hover:text-black py-4">
-                                <th className="py-8">{i + 1}</th>
-                                <td className="py-8">
+                                <th className="py-8 md:py-12">{i + 1}</th>
+                                <td className="py-8 md:py-12">
                                     {submission.title}
                                 </td>
-                                <td className="py-8">
-                                    {submission.status}
+                                <td className="py-8 md:py-12">
+                                    <span
+                                        className={`inline-block w-28  py-1 text-center rounded-md font-medium  ${submission.status === "Pending"
+                                            ? "bg-orange-100 text-orange-700 border rounded-3xl border-orange-300"
+                                            : "bg-green-100 text-green-700 border rounded-3xl border-green-300"
+                                            }`}
+                                    >
+                                        {submission.status}
+                                    </span>
+
+
                                 </td>
-                                <td className="py-8">
+                                <td className="py-8 md:py-12">
                                     {submission.marks}
                                 </td>
-                                <td className="py-8">
+                                <td className="py-8 md:py-12">
                                     {submission.obtained_marks || 'N/A'}
                                 </td>
-                                <td className="py-8">
+                                <td className="py-8 md:py-12">
                                     {submission.feedback || 'N/A'}
                                 </td>
 

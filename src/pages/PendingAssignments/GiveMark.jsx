@@ -49,7 +49,7 @@ const GiveMark = () => {
     };
 
     return (
-        <div className="bg-white p-8 max-w-2xl mx-auto rounded-xl shadow-md space-y-8">
+        <div className="bg-white dark:text-black p-8 max-w-2xl mx-auto rounded-xl shadow-md space-y-8">
             {/* Header Section */}
             <div className="text-center space-y-2">
                 <h2 className="text-2xl font-bold text-gray-800">
