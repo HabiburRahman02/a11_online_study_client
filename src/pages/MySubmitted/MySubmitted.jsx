@@ -1,19 +1,21 @@
-import axios from "axios";
+
 import { useEffect, useState } from "react";
 import { FaCircle } from 'react-icons/fa';
 
 import useAuth from "../../hooks/useAuth";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
 
 const MySubmitted = () => {
     const { user } = useAuth();
+    const axiosSecure = useAxiosSecure();
     const [submissions, setSubmissions] = useState([]);
-    console.log(submissions);
+    // console.log(submissions);
     useEffect(() => {
-        axios.get(`http://localhost:5000/submissionByEmail/${user?.email}`)
+        axiosSecure.get(`/submissionByEmail/${user?.email}`)
             .then(data => {
                 setSubmissions(data.data)
             })
-    }, [user?.email]);
+    }, [user?.email, axiosSecure]);
 
 
     return (
