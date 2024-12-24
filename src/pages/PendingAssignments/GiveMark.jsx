@@ -2,12 +2,8 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
-import useAuth from "../../hooks/useAuth";
-
-
 
 const GiveMark = () => {
-    const { user } = useAuth();
     const { id } = useParams();
     const [assignment, setAssignment] = useState([]);
     const navigate = useNavigate();
