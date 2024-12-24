@@ -12,7 +12,7 @@ const Assignments = () => {
     const [filter, setFilter] = useState('');
     console.log(assignments);
     useEffect(() => {
-        axios.get(`http://localhost:5000/assignmentBySearch?search=${search}&filter=${filter}`)
+        axios.get(`https://a11-group-study-server-rho.vercel.app/assignmentBySearch?search=${search}&filter=${filter}`)
             .then(data => {
                 setAssignments(data.data);
             })
@@ -35,7 +35,7 @@ const Assignments = () => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                axios.delete(`http://localhost:5000/assignments/${id}`)
+                axios.delete(`https://a11-group-study-server-rho.vercel.app/assignments/${id}`)
                     .then(data => {
                         if (data.data.deletedCount) {
                             Swal.fire({

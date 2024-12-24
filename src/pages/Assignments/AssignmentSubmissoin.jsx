@@ -18,7 +18,7 @@ const AssignmentSubmission = () => {
         data.submission_id = submission._id
         data.submission_email = submission.email;
         console.log(data)
-        axios.post('http://localhost:5000/submissions', data)
+        axios.post('https://a11-group-study-server-rho.vercel.app/submissions', data)
             .then(data => {
                 console.log(data.data)
                 if (data.data.insertedId) {

@@ -9,7 +9,7 @@ const PendingAssignments = () => {
     const [assignments, setAssignments] = useState([]);
 
     useEffect(() => {
-        axios.get(`http://localhost:5000/pendingAssignments?email=${user?.email}`)
+        axios.get(`https://a11-group-study-server-rho.vercel.app/pendingAssignments?email=${user?.email}`)
             .then(data => {
                 setAssignments(data.data)
             })

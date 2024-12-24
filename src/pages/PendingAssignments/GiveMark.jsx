@@ -9,7 +9,7 @@ const GiveMark = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        axios.get(`http://localhost:5000/giveMarkSpecificUser/${id}`)
+        axios.get(`https://a11-group-study-server-rho.vercel.app/giveMarkSpecificUser/${id}`)
             .then(data => {
                 setAssignment(data.data)
             })
@@ -32,7 +32,7 @@ const GiveMark = () => {
         //     return navigate('/pendingAssignments')
         // }
 
-        axios.patch(`http://localhost:5000/markData/${id}`, giveMarkData)
+        axios.patch(`https://a11-group-study-server-rho.vercel.app/markData/${id}`, giveMarkData)
             .then(data => {
                 if (data.data.modifiedCount) {
                     navigate('/pendingAssignments')

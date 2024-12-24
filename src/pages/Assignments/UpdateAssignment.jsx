@@ -26,7 +26,7 @@ const UpdateAssignment = () => {
             return navigate('/assignments')
         }
 
-        axios.patch(`http://localhost:5000/assignmentById/${id}`, data)
+        axios.patch(`https://a11-group-study-server-rho.vercel.app/assignmentById/${id}`, data)
             .then(data => {
                 if (data.data.modifiedCount) {
                     toast.success('Assignments modified successfully')

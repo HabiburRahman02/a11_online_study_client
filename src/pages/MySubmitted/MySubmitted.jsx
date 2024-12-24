@@ -48,9 +48,9 @@ const MySubmitted = () => {
                                 </td>
                                 <td className="py-8 md:py-12">
                                     <span
-                                        className={`inline-block w-28  py-1 text-center rounded-md font-medium  ${submission.status === "Pending"
-                                            ? "bg-orange-100 text-orange-700 border rounded-3xl border-orange-300"
-                                            : "bg-green-100 text-green-700 border rounded-3xl border-green-300"
+                                        className={`inline-block w-28  py-1 text-center rounded-3xl font-medium  ${submission.status === "Pending"
+                                            ? "bg-orange-100 text-orange-700 border  border-orange-300"
+                                            : "bg-green-100 text-green-700 border  border-green-300"
                                             }`}
                                     >
                                         {submission.status}
