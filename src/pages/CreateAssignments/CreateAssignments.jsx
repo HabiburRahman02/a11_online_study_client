@@ -2,14 +2,15 @@ import { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import useAuth from "../../hooks/useAuth";
-import axios from "axios";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
 
 const CreateAssignments = () => {
     const { user } = useAuth();
     const [startDate, setStartDate] = useState(new Date());
     const navigate = useNavigate();
+    const axiosSecure = useAxiosSecure()
 
     const handleSubmit = e => {
         e.preventDefault();
@@ -17,7 +18,7 @@ const CreateAssignments = () => {
         const formData = new FormData(form);
         const data = Object.fromEntries(formData.entries());
         console.log(data);
-        axios.post('http://localhost:5000/assignments', data)
+        axiosSecure.post('/assignments', data)
             .then(data => {
                 console.log(data.data)
                 if (data.data.insertedId) {
@@ -27,6 +28,7 @@ const CreateAssignments = () => {
             })
             .catch(error => toast.error(error.message))
     }
+
     return (
         <div className="min-h-screen flex items-center justify-center ">
             <div className="max-w-4xl w-full bg-white shadow-xl border border-gray-200  dark:text-black rounded-lg overflow-hidden p-8 my-">

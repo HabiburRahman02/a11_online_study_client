@@ -31,10 +31,10 @@ const GiveMark = () => {
         };
 
         // same user validation
-        if (assignment?.email === user?.email) {
-            toast.error('You can not mark you assignment')
-            return navigate('/pendingAssignments')
-        }
+        // if (assignment?.email === user?.email) {
+        //     toast.error('You can not mark you assignment')
+        //     return navigate('/pendingAssignments')
+        // }
 
         axios.patch(`http://localhost:5000/markData/${id}`, giveMarkData)
             .then(data => {

@@ -7,7 +7,8 @@ import logo from '../../assets/icon/logo.png'
 const Navbar = () => {
     const { user, logOut } = useAuth();
     const location = useLocation();
-    const style = location.pathname === '/';
+    const style = location.pathname.includes('/')
+    console.log(style);
 
     const handleDarkTheme = () => {
         document.documentElement.classList.toggle('dark')
@@ -25,7 +26,7 @@ const Navbar = () => {
 
     return (
         <nav className="dark:text-white dark:bg-gray-700">
-            <div className={`mb-12 ${style && 'mb-0'} navbar max-w-[1400px] mx-auto py-4 border-b-2 border-b-gray-200`}>
+            <div className={` ${style && 'mb-0'} mb-12 navbar max-w-[1400px] mx-auto py-4 border-b-2 border-b-gray-200`}>
                 <div className="flex-1">
                     <Link to='/' className="font-semibold text-2xl flex items-center gap-2">
                         <img className="" src={logo} alt="" />
