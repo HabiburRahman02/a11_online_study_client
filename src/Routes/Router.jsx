@@ -12,11 +12,13 @@ import AssignmentSubmission from "../pages/Assignments/AssignmentSubmissoin";
 import MySubmitted from "../pages/MySubmitted/MySubmitted";
 import PendingAssignments from "../pages/PendingAssignments/PendingAssignments";
 import GiveMark from "../pages/PendingAssignments/GiveMark";
+import ErrorPage from "../pages/ErrorPage/ErrorPage";
 
 const router = createBrowserRouter([
     {
         path: "/",
         element: <Main></Main>,
+        errorElement: <ErrorPage></ErrorPage>,
         children: [
             {
                 path: '/',
