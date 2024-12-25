@@ -17,7 +17,36 @@ const CreateAssignments = () => {
         const form = e.target
         const formData = new FormData(form);
         const data = Object.fromEntries(formData.entries());
-        console.log(data);
+        if (!data.title) {
+            return toast.error('Title field is required')
+        }
+
+        if (!data.marks) {
+            return toast.error('Marks field is required')
+        }
+
+        if (!data.thumbnail) {
+            return toast.error('Thumbnail field is required')
+        }
+
+        if (!data.difficulty) {
+            return toast.error('Difficulty field is required')
+        }
+        if (!data.name) {
+            return toast.error('Name field is required')
+        }
+
+        if (!data.email) {
+            return toast.error('Email field is required')
+        }
+
+        if (!data.date) {
+            return toast.error('Thumbnail field is required')
+        }
+        if (!data.description) {
+            return toast.error('Description field is required')
+        }
+
         axiosSecure.post('/assignments', data)
             .then(data => {
                 console.log(data.data)

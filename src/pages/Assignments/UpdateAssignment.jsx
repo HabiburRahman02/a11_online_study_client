@@ -1,10 +1,10 @@
-import axios from "axios";
 import { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useLoaderData, useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import useAuth from "../../hooks/useAuth";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
 
 
 const UpdateAssignment = () => {
@@ -13,6 +13,7 @@ const UpdateAssignment = () => {
     const [startDate, setStartDate] = useState(new Date());
     const assignments = useLoaderData();
     const navigate = useNavigate();
+    const axiosSecure = useAxiosSecure();
     const { title, marks, thumbnail, difficulty, email, name, date, description } = assignments
 
     const handleSubmit = e => {
@@ -21,12 +22,42 @@ const UpdateAssignment = () => {
         const formData = new FormData(form);
         const data = Object.fromEntries(formData.entries());
 
+        if (!data.title) {
+            return toast.error('Title field is required')
+        }
+
+        if (!data.marks) {
+            return toast.error('Marks field is required')
+        }
+
+        if (!data.thumbnail) {
+            return toast.error('Thumbnail field is required')
+        }
+
+        if (!data.difficulty) {
+            return toast.error('Difficulty field is required')
+        }
+        if (!data.name) {
+            return toast.error('Name field is required')
+        }
+
+        if (!data.email) {
+            return toast.error('Email field is required')
+        }
+
+        if (!data.date) {
+            return toast.error('Thumbnail field is required')
+        }
+        if (!data.description) {
+            return toast.error('Description field is required')
+        }
+
         if (data?.email !== user?.email) {
             toast.error('You can not update other user created assignment')
             return navigate('/assignments')
         }
 
-        axios.patch(`https://a11-group-study-server-rho.vercel.app/assignmentById/${id}`, data)
+        axiosSecure.patch(`/assignmentById/${id}`, data)
             .then(data => {
                 if (data.data.modifiedCount) {
                     toast.success('Assignments modified successfully')
@@ -37,8 +68,8 @@ const UpdateAssignment = () => {
     }
 
     return (
-        <div className="min-h-screen flex items-center justify-center">
-            <div className="max-w-4xl w-full bg-white dark:text-black shadow-xl rounded-lg overflow-hidden p-8 my-">
+        <div className=" min-h-screen flex items-center justify-center">
+            <div className="max-w-4xl w-full bg-white dark:text-black shadow-xl rounded-lg overflow-hidden p-6 my-">
                 <h2 className="text-3xl font-bold text-center mb-6 text-gray-800">Update Assignment</h2>
                 <form onSubmit={handleSubmit}>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

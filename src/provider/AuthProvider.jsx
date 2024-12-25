@@ -44,14 +44,14 @@ const AuthProvider = ({ children }) => {
             console.log('currentUser', currentUser);
             if (currentUser?.email) {
                 const user = { email: currentUser.email }
-                axios.post(`https://a11-group-study-server-rho.vercel.app/jwt`, user, { withCredentials: true })
+                axios.post(`http://localhost:5000/jwt`, user, { withCredentials: true })
                     .then(data => {
                         console.log(data.data);
                         setLoading(false);
                     })
             }
             else {
-                axios.post('https://a11-group-study-server-rho.vercel.app/logout', {}, { withCredentials: true })
+                axios.post('http://localhost:5000/logout', {}, { withCredentials: true })
                     .then(data => {
                         console.log(data.data);
                         setLoading(false);

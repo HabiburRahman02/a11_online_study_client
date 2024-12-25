@@ -1,19 +1,20 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
 import { FaCircle } from "react-icons/fa";
 import useAuth from "../../hooks/useAuth";
 import PendingAssignmentTableRow from "./PendingAssignmentTableRow";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
 
 const PendingAssignments = () => {
     const { user } = useAuth();
     const [assignments, setAssignments] = useState([]);
+    const axiosSecure = useAxiosSecure();
 
     useEffect(() => {
-        axios.get(`https://a11-group-study-server-rho.vercel.app/pendingAssignments?email=${user?.email}`)
+        axiosSecure.get(`/pendingAssignments?email=${user?.email}`)
             .then(data => {
                 setAssignments(data.data)
             })
-    }, [user?.email]);
+    }, [user?.email, axiosSecure]);
 
 
 

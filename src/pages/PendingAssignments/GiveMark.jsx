@@ -2,14 +2,15 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
 
 const GiveMark = () => {
     const { id } = useParams();
     const [assignment, setAssignment] = useState([]);
     const navigate = useNavigate();
-
+    const axiosSecure = useAxiosSecure();
     useEffect(() => {
-        axios.get(`https://a11-group-study-server-rho.vercel.app/giveMarkSpecificUser/${id}`)
+        axios.get(`http://localhost:5000/giveMarkSpecificUser/${id}`)
             .then(data => {
                 setAssignment(data.data)
             })
@@ -26,13 +27,14 @@ const GiveMark = () => {
             status: 'Completed'
         };
 
-        // same user validation
-        // if (assignment?.email === user?.email) {
-        //     toast.error('You can not mark you assignment')
-        //     return navigate('/pendingAssignments')
-        // }
+        if (!obtained_marks) {
+            return toast.error('Marks field is required')
+        }
+        if (!feedback) {
+            return toast.error('Feedback field is required')
+        }
 
-        axios.patch(`https://a11-group-study-server-rho.vercel.app/markData/${id}`, giveMarkData)
+        axiosSecure.patch(`/markData/${id}`, giveMarkData)
             .then(data => {
                 if (data.data.modifiedCount) {
                     navigate('/pendingAssignments')
@@ -101,7 +103,6 @@ const GiveMark = () => {
                     <input
                         type="number"
                         id="marks"
-                        required
                         className="w-full px-4 py-2 mt-1 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
                         placeholder="Enter marks"
                     />
@@ -114,7 +115,6 @@ const GiveMark = () => {
                     <textarea
                         id="feedback"
                         rows="4"
-                        required
                         className="w-full px-4 py-2 mt-1 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
                         placeholder="Provide feedback"
                     />

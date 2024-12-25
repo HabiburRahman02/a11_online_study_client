@@ -29,10 +29,10 @@ const Banner = () => {
                     <div className="hero-content text-neutral-content">
                         <div className='flex justify-start items-center'>
                             <div className="md:w-2/3">
-                                <p className="mb-5 text-xl font-bold uppercase">
+                                <p className="mb-5 md:text-xl text-lg font-bold uppercase">
                                     create a online Group study site
                                 </p>
-                                <h1 className="mb-12 text-6xl font-bold uppercase">so easy when <span className='text-[#1ba590]'>udetor</span> appears.</h1>
+                                <h1 className="mb-12 text-5xl md:text-6xl font-bold uppercase">so easy when <span className='text-[#1ba590]'>udetor</span> appears.</h1>
                                 <Link to='/'>
                                     <button className="uppercase bg-customGreen py-2 px-12  text-white font-bold 
                                     border-[2px]
@@ -58,10 +58,10 @@ const Banner = () => {
                     <div className="hero-content text-neutral-content">
                         <div className='flex justify-start items-center'>
                             <div className="md:w-2/3">
-                                <p className="mb-5 text-xl font-bold uppercase">
+                                <p className="mb-5 md:text-xl text-lg font-bold uppercase">
                                     create a online group study site
                                 </p>
-                                <h1 className="mb-12 text-6xl font-bold uppercase">so easy when <span className='text-[#1ba590]'>udetor</span> appears.</h1>
+                                <h1 className="mb-12 text-5xl md:text-6xl font-bold uppercase">so easy when <span className='text-[#1ba590]'>udetor</span> appears.</h1>
                                 <Link to='/'>
                                     <button className="uppercase bg-customGreen py-2 px-12  text-white font-bold 
                                     border-[2px]
@@ -87,10 +87,10 @@ const Banner = () => {
                     <div className="hero-content text-neutral-content">
                         <div className='flex justify-start items-center'>
                             <div className="md:w-2/3">
-                                <p className="mb-5 text-xl font-bold uppercase">
+                                <p className="mb-5 md:text-xl text-lg font-bold uppercase">
                                     create a online group study site
                                 </p>
-                                <h1 className="mb-12 text-6xl font-bold uppercase">so easy when <span className='text-[#1ba590]'>udetor</span> appears.</h1>
+                                <h1 className="mb-12 text-5xl md:text-6xl font-bold uppercase">so easy when <span className='text-[#1ba590]'>udetor</span> appears.</h1>
                                 <Link to='/'>
                                     <button className="uppercase bg-customGreen py-2 px-12  text-white font-bold 
                                     border-[2px]

@@ -43,17 +43,17 @@ const router = createBrowserRouter([
             {
                 path: '/updateAssignment/:id',
                 element: <PrivateRoute><UpdateAssignment></UpdateAssignment></PrivateRoute>,
-                loader: ({ params }) => fetch(`https://a11-group-study-server-rho.vercel.app/assignmentById/${params.id}`)
+                loader: ({ params }) => fetch(`http://localhost:5000/assignmentById/${params.id}`)
             },
             {
                 path: '/assignmentDetails/:id',
                 element: <PrivateRoute><AssignmentDetails></AssignmentDetails></PrivateRoute>,
-                loader: ({ params }) => fetch(`https://a11-group-study-server-rho.vercel.app/assignmentById/${params.id}`)
+                loader: ({ params }) => fetch(`http://localhost:5000/assignmentById/${params.id}`)
             },
             {
                 path: '/assignmentSubmission/:id',
                 element: <PrivateRoute><AssignmentSubmission></AssignmentSubmission></PrivateRoute>,
-                loader: ({ params }) => fetch(`https://a11-group-study-server-rho.vercel.app/assignmentById/${params.id}`)
+                loader: ({ params }) => fetch(`http://localhost:5000/assignmentById/${params.id}`)
             },
             {
                 path: '/mySubmitted',
@@ -66,7 +66,7 @@ const router = createBrowserRouter([
             {
                 path: '/giveMark/:id',
                 element: <PrivateRoute><GiveMark></GiveMark></PrivateRoute>,
-                // loader: ({ params }) => fetch(`https://a11-group-study-server-rho.vercel.app/assignmentById/${params.id}`)
+                // loader: ({ params }) => fetch(`http://localhost:5000/assignmentById/${params.id}`)
             },
         ]
     },

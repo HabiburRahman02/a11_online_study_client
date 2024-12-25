@@ -34,7 +34,7 @@ const Navbar = () => {
                     </Link>
                 </div>
                 <div className="flex-none gap-2">
-                    <ul className="flex items-center gap-4 font-medium ">
+                    <ul className="flex items-center gap-2 md:gap-6 font-medium ">
                         <li>
                             <NavLink to='/' className={({ isActive }) => `hover:text-customGreen duration-500 ${isActive && 'text-customGreen'}`}>Home</NavLink>
                         </li>
