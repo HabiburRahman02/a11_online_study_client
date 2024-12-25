@@ -28,8 +28,8 @@ const PendingAssignments = () => {
                 <table className="table">
                     {/* head */}
                     <thead className="bg-gradient-to-r from-blue-100 via-purple-100 to-pink-100 text-black">
-                        <tr>
-                            <th className="py-6"> <FaCircle className="text-green-400"></FaCircle></th>
+                        <tr className="text-center">
+                            <th className="py-6"> <FaCircle className="text-green-400 mx-auto"></FaCircle></th>
                             <th className="py-6">Title</th>
                             <th className="py-6">Marks</th>
                             <th className="py-6">Examiner Name || Email</th>

@@ -20,7 +20,7 @@ const PendingAssignmentTableRow = ({ assignment, i }) => {
 
     return (
         <tr
-            className="hover:bg-gray-100  transition duration-500 hover:text-black py-4">
+            className="hover:bg-gray-100 text-center  transition duration-500 hover:text-black py-4">
             <th className="py-8 md:py-12">{i + 1}</th>
             <td className="py-8 md:py-12">
                 {assignment.title}

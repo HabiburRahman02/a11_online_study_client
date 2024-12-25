@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 
 import withAutoplay from 'react-awesome-slider/dist/autoplay';
 import 'react-awesome-slider/dist/styles.css'
+import { Fade } from 'react-awesome-reveal';
 
 const AutoplaySlider = withAutoplay(AwesomeSlider);
 
@@ -29,16 +30,23 @@ const Banner = () => {
                     <div className="hero-content text-neutral-content">
                         <div className='flex justify-start items-center'>
                             <div className="md:w-2/3">
-                                <p className="mb-5 md:text-xl text-lg font-bold uppercase">
-                                    create a online Group study site
-                                </p>
-                                <h1 className="mb-12 text-5xl md:text-6xl font-bold uppercase">so easy when <span className='text-[#1ba590]'>udetor</span> appears.</h1>
+                                <Fade direction='down' duration={2000}>
+                                    <p className="mb-5 md:text-xl text-lg font-bold uppercase">
+                                        create a online Group study site
+                                    </p>
+                                </Fade>
+                                <Fade direction='up' duration={2000}>
+                                    <h1 className="mb-12 text-5xl md:text-6xl font-bold uppercase">so easy when <span className='text-[#1ba590]'>udetor</span> appears.</h1>
+
+                                </Fade>
                                 <Link to='/'>
-                                    <button className="uppercase bg-customGreen py-2 px-12  text-white font-bold 
+                                    <Fade direction='up' duration={2000}>
+                                        <button className="uppercase bg-customGreen py-2 px-12  text-white font-bold 
                                     border-[2px]
                                     border-transparent hover:border-[2px] hover:border-white hover:bg-transparent transition-all rounded-full">
-                                        Get Started
-                                    </button>
+                                            Get Started
+                                        </button>
+                                    </Fade>
                                 </Link>
                             </div>
                             <div className='md:w-1/3'>
@@ -58,16 +66,23 @@ const Banner = () => {
                     <div className="hero-content text-neutral-content">
                         <div className='flex justify-start items-center'>
                             <div className="md:w-2/3">
-                                <p className="mb-5 md:text-xl text-lg font-bold uppercase">
-                                    create a online group study site
-                                </p>
-                                <h1 className="mb-12 text-5xl md:text-6xl font-bold uppercase">so easy when <span className='text-[#1ba590]'>udetor</span> appears.</h1>
+                                <Fade direction='down' duration={2000}>
+                                    <p className="mb-5 md:text-xl text-lg font-bold uppercase">
+                                        create a online Group study site
+                                    </p>
+                                </Fade>
+                                <Fade direction='up' duration={2000}>
+                                    <h1 className="mb-12 text-5xl md:text-6xl font-bold uppercase">so easy when <span className='text-[#1ba590]'>udetor</span> appears.</h1>
+
+                                </Fade>
                                 <Link to='/'>
-                                    <button className="uppercase bg-customGreen py-2 px-12  text-white font-bold 
+                                    <Fade direction='up' duration={2000}>
+                                        <button className="uppercase bg-customGreen py-2 px-12  text-white font-bold 
                                     border-[2px]
                                     border-transparent hover:border-[2px] hover:border-white hover:bg-transparent transition-all rounded-full">
-                                        Get Started
-                                    </button>
+                                            Get Started
+                                        </button>
+                                    </Fade>
                                 </Link>
                             </div>
                             <div className='md:w-1/3'>
@@ -87,16 +102,23 @@ const Banner = () => {
                     <div className="hero-content text-neutral-content">
                         <div className='flex justify-start items-center'>
                             <div className="md:w-2/3">
-                                <p className="mb-5 md:text-xl text-lg font-bold uppercase">
-                                    create a online group study site
-                                </p>
-                                <h1 className="mb-12 text-5xl md:text-6xl font-bold uppercase">so easy when <span className='text-[#1ba590]'>udetor</span> appears.</h1>
+                                <Fade direction='down' duration={2000}>
+                                    <p className="mb-5 md:text-xl text-lg font-bold uppercase">
+                                        create a online Group study site
+                                    </p>
+                                </Fade>
+                                <Fade direction='up' duration={2000}>
+                                    <h1 className="mb-12 text-5xl md:text-6xl font-bold uppercase">so easy when <span className='text-[#1ba590]'>udetor</span> appears.</h1>
+
+                                </Fade>
                                 <Link to='/'>
-                                    <button className="uppercase bg-customGreen py-2 px-12  text-white font-bold 
+                                    <Fade direction='up' duration={2000}>
+                                        <button className="uppercase bg-customGreen py-2 px-12  text-white font-bold 
                                     border-[2px]
                                     border-transparent hover:border-[2px] hover:border-white hover:bg-transparent transition-all rounded-full">
-                                        Get Started
-                                    </button>
+                                            Get Started
+                                        </button>
+                                    </Fade>
                                 </Link>
                             </div>
                             <div className='md:w-1/3'>
@@ -105,7 +127,6 @@ const Banner = () => {
                         </div>
                     </div>
                 </div>
-
             </AutoplaySlider>
 
         </div>

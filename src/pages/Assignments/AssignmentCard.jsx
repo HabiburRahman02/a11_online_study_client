@@ -3,6 +3,7 @@ import { RiDeleteBack2Fill } from "react-icons/ri";
 import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import { toast } from "react-toastify";
+import { Fade } from "react-awesome-reveal";
 
 
 const AssignmentCard = ({ assignment, handleDelete }) => {
@@ -23,7 +24,9 @@ const AssignmentCard = ({ assignment, handleDelete }) => {
 
     }
     return (
+
         <div key={assignment._id} className="space-y-2 bg-white border shadow-lg rounded-lg p-6 hover:shadow-xl transition-transform duration-500 ease-in-out mx-6 md:mx-0  hover:scale-105 dark:bg-gray-700 dark:shadow-2xl">
+
             <div className="flex items-center justify-center mb-4">
                 <img
                     className="w-full h-60 rounded-lg object-cover"
@@ -31,37 +34,45 @@ const AssignmentCard = ({ assignment, handleDelete }) => {
                     alt="Thumbnail"
                 />
             </div>
-            <h4 className="text-xl font-semibold text-indigo-800 dark:text-white">{title}</h4>
-            <p className="text-sm text-gray-700 mt-2 dark:text-white">Total Marks: <span className="font-semibold text-indigo-600 dark:text-white">{marks}</span></p>
-
-            <div className="text-sm text-gray-700 dark:text-white">Difficulty:  <div className="badge badge-secondary">{difficulty}</div></div>
-            <p className="text-sm text-gray-700 dark:text-white">Date: <span className="font-semibold text-gray-900 dark:text-white">{date}</span></p>
-
+            <Fade duration={1000} direction="up">
+                <h4 className="text-xl font-semibold text-indigo-800 dark:text-white">{title}</h4>
+            </Fade>
+            <Fade duration={1000} direction="up">
+                <p className="text-sm text-gray-700 mt-2 dark:text-white">Total Marks: <span className="font-semibold text-indigo-600 dark:text-white">{marks}</span></p>
+            </Fade>
+            <Fade duration={1000} direction="up">
+                <div className="text-sm text-gray-700 dark:text-white">Difficulty:  <div className="badge badge-secondary">{difficulty}</div></div>
+            </Fade>
+            <Fade duration={1000} direction="up">
+                <p className="text-sm text-gray-700 dark:text-white">Date: <span className="font-semibold text-gray-900 dark:text-white">{date}</span></p>
+            </Fade>
 
             {/* Actions */}
-            <div className=" flex gap-4 justify-center">
-                {/* <Link to={`/updateAssignment/${_id}`}> */}
-                <button
-                    onClick={handleNavigateToUpdatePage}
-                    className="text-xl text-blue-500 hover:text-blue-700 p-2 rounded-full hover:bg-blue-100 transition duration-300 ease-in-out"
-                >
-                    <FaEdit />
-                </button>
-                {/* </Link> */}
-                <button
-                    onClick={() => handleDelete(_id)}
-                    className="text-xl text-red-500 hover:text-red-700 p-2 rounded-full hover:bg-red-100 transition duration-300 ease-in-out"
-                >
-                    <RiDeleteBack2Fill />
-                </button>
-                <Link to={`/assignmentDetails/${_id}`}>
+            <Fade duration={1000} direction="up">
+                <div className=" flex gap-4 justify-center">
+                    {/* <Link to={`/updateAssignment/${_id}`}> */}
                     <button
-                        className="text-xl text-green-500 hover:text-green-700 p-2 rounded-full hover:bg-green-100 transition duration-300 ease-in-out"
+                        onClick={handleNavigateToUpdatePage}
+                        className="text-xl text-blue-500 hover:text-blue-700 p-2 rounded-full hover:bg-blue-100 transition duration-300 ease-in-out"
                     >
-                        <FaEye />
+                        <FaEdit />
                     </button>
-                </Link>
-            </div>
+                    {/* </Link> */}
+                    <button
+                        onClick={() => handleDelete(_id)}
+                        className="text-xl text-red-500 hover:text-red-700 p-2 rounded-full hover:bg-red-100 transition duration-300 ease-in-out"
+                    >
+                        <RiDeleteBack2Fill />
+                    </button>
+                    <Link to={`/assignmentDetails/${_id}`}>
+                        <button
+                            className="text-xl text-green-500 hover:text-green-700 p-2 rounded-full hover:bg-green-100 transition duration-300 ease-in-out"
+                        >
+                            <FaEye />
+                        </button>
+                    </Link>
+                </div>
+            </Fade>
         </div>
     );
 };
