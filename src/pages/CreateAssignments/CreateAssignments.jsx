@@ -32,9 +32,6 @@ const CreateAssignments = () => {
         if (!data.difficulty) {
             return toast.error('Difficulty field is required')
         }
-        if (!data.name) {
-            return toast.error('Name field is required')
-        }
 
         if (!data.email) {
             return toast.error('Email field is required')

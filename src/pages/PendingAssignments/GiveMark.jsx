@@ -10,7 +10,7 @@ const GiveMark = () => {
     const navigate = useNavigate();
     const axiosSecure = useAxiosSecure();
     useEffect(() => {
-        axios.get(`http://localhost:5000/giveMarkSpecificUser/${id}`)
+        axios.get(`https://a11-group-study-server-rho.vercel.app/giveMarkSpecificUser/${id}`)
             .then(data => {
                 setAssignment(data.data)
             })
