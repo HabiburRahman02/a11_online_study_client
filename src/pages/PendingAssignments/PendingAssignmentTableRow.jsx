@@ -29,7 +29,7 @@ const PendingAssignmentTableRow = ({ assignment, i }) => {
                 {assignment.marks}
             </td>
             <td className="py-8 md:py-12">
-                {assignment.examiner_name || assignment.email}
+                {assignment.email}
             </td>
             <td className="py-8 md:py-12">
                 {/* <Link to={`/giveMark/${assignment._id}`}> */}
