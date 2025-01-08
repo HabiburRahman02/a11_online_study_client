@@ -44,9 +44,7 @@
 #### **Main Dependencies**
 - **axios**: ^1.7.9  
 - **firebase**: ^11.1.0  
-- **localforage**: ^1.10.0  
 - **lottie-react**: ^2.4.0  
-- **match-sorter**: ^8.0.0  
 - **react**: ^18.3.1  
 - **react-awesome-reveal**: ^4.3.1  
 - **react-awesome-slider**: ^4.1.0  
@@ -57,7 +55,6 @@
 - **react-loader-spinner**: ^6.1.6  
 - **react-router-dom**: ^7.1.0  
 - **react-toastify**: ^11.0.2  
-- **sort-by**: ^1.2.0  
 - **sweetalert2**: ^11.15.3  
 
 #### **Development Dependencies**
