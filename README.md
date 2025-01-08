@@ -1,5 +1,5 @@
 ## Home Page Screenshot
-![Fund Collect Website](https://i.ibb.co.com/rpvSYyk/a11.jpg)
+![Online study website](https://i.ibb.co.com/rpvSYyk/a11.jpg)
 
 ## Project name
 - Online study website
