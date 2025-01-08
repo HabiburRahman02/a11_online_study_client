@@ -1,7 +1,7 @@
-## Project name:
+## Project name
 - Online study website
 
-## Purpose:
+## Purpose
 ###### The purpose of our website is to enable us to share accommodations while studying alongside university life, submit various assignments, view each other's assignments, and more.
 
 
@@ -81,8 +81,9 @@
 
 1. Clone: `git clone <repo-url>`
 2. Install: `npm install`
-3. Run: `npm run dev`
-4. Build: `npm run build`
+3. Set up `.env.local` file with your Firebase credentials.
+4. Run: `npm run dev`
+5. Build: `npm run build`
 
 
 ## Live Link and Server Repo Link
