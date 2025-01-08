@@ -1,3 +1,6 @@
+## Home Page Screenshot
+![Fund Collect Website](https://i.ibb.co.com/rpvSYyk/a11.jpg)
+
 ## Project name
 - Online study website
 
@@ -24,7 +27,7 @@
 
 
 
-## 5. Key features
+##  Key features
 ##### Here are some features of the website:
 
 - **View Assignments Without Logging In**: Any user can view assignments added by others without logging in.  
