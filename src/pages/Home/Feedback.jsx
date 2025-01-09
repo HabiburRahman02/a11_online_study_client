@@ -3,6 +3,7 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import { Autoplay, Navigation, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import Heading from '../../components/Heading';
 
 
 const Feedback = () => {
@@ -15,8 +16,11 @@ const Feedback = () => {
     }, [])
 
     return (
-        <div className='my-20 max-w-7xl mx-auto px-6
+        <div id='feedback' className='pt-12 pb-24 max-w-[1400px] mx-auto px-6
          md:px-0'>
+            <Heading
+                title="Candidates Feedback"
+            ></Heading>
             <Swiper
                 slidesPerView={1}
                 spaceBetween={30}
@@ -59,7 +63,7 @@ const Feedback = () => {
                                             {feed.name}
                                             <div className="badge badge-secondary">{feed.rating}</div>
                                         </h2>
-                                        <p>{feed.description}</p>
+                                        <p>{feed.description.slice(0, 150)}...</p>
                                         <p>Date: {feed.date}</p>
                                     </div>
                                 </div>

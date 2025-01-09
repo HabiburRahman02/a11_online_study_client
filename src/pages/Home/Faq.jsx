@@ -2,9 +2,13 @@
 import Lottie from 'lottie-react';
 import faqLottie from '../../assets/login/faq.json'
 import { Fade, Zoom } from 'react-awesome-reveal';
+import Heading from '../../components/Heading';
 const Faq = () => {
     return (
-        <div className="mt-16 max-w-7xl mx-auto">
+        <div className="pb-12 max-w-[1400px] mx-auto">
+            <Heading
+                title='Frequently Asked Question'
+            ></Heading>
             <div className="lg:flex items-center gap-6">
                 <div className="lg:w-1/2">
                     <div className='h-full w-full'>

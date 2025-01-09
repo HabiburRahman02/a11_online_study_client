@@ -98,7 +98,7 @@ const Navbar = () => {
                         {!user &&
                             <>
                                 <Link to='/login'>
-                                    <button className="bg-customGreen hover:bg-[#03816e] text-white px-8 py-2 rounded-full">Login</button>
+                                    <button className="bg-white border-[2px] hover:border-white duration-500 border-transparent hover:border-[2px] hover:bg-transparent hover:text-white text-black font-medium px-8 py-2 rounded-full">Login</button>
                                 </Link>
                             </>
                         }
