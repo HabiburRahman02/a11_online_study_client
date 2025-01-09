@@ -56,7 +56,7 @@ const Assignments = () => {
     }
 
     return (
-        <div className="max-w-[1400px] mx-auto">
+        <div className="max-w-[1400px] mx-auto py-12">
             <Fade duration={2000} direction="down">
                 <div className="md:flex space-y-4 md:space-y-0 items-center justify-between gap-6 pb-6 px-6 md:px-20">
                     <h3 className="mb-4 text-xl max-w-xs md:mx-0 mx-auto font-semibold text-indigo-600 text-center p-3 border-l-4 border-indigo-400 border-r-4 bg-white shadow-md rounded-md">

@@ -1,4 +1,4 @@
-import { Link, NavLink, useLocation } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import { toast } from "react-toastify";
 import logo from '../../assets/icon/logo.png'
@@ -6,9 +6,6 @@ import logo from '../../assets/icon/logo.png'
 
 const Navbar = () => {
     const { user, logOut } = useAuth();
-    const location = useLocation();
-    const style = location.pathname.includes('/')
-    console.log(style);
 
     const handleDarkTheme = () => {
         document.documentElement.classList.toggle('dark')
@@ -25,21 +22,52 @@ const Navbar = () => {
     }
 
     return (
-        <nav className="dark:text-white dark:bg-gray-700">
-            <div className={` ${style && 'mb-0'} mb-12 navbar max-w-[1400px] mx-auto py-4 border-b-2 border-b-gray-200`}>
+        <nav className="dark:text-white dark:bg-gray-700 bg-customGreen text-white fixed z-50 top-0 w-full ">
+
+            <div className={` navbar max-w-[1400px] mx-auto py-5`}>
                 <div className="flex-1">
+                    {/* only sm device */}
+                    <div className="navbar-start  block md:hidden">
+                        <div className="dropdown">
+                            <div tabIndex={0} role="button" className="btn btn-ghost btn-circle">
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    className="h-5 w-5"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke="currentColor">
+                                    <path
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                        strokeWidth="2"
+                                        d="M4 6h16M4 12h16M4 18h7" />
+                                </svg>
+                            </div>
+                            <ul
+                                tabIndex={0}
+                                className="menu menu-sm dropdown-content bg-base-100 dark:text-black text-black font-medium z-50 mt-3 w-52 p-4 space-y-2 shadow">
+                                <li>
+                                    <NavLink to='/' className={({ isActive }) => `hover:text-customGreen duration-500 ${isActive && 'text-customGreen'}`}>Home</NavLink>
+                                </li>
+                                <li>
+                                    <NavLink to='assignments' className={({ isActive }) => `hover:text-customGreen duration-500 ${isActive && 'text-customGreen'}`}>Assignments</NavLink>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
                     <Link to='/' className="font-semibold text-2xl flex items-center gap-2">
                         <img className="" src={logo} alt="" />
-                        <span className="hidden sm:block"> Online<span className="text-green-500">Study</span></span>
+                        <span className="hidden lg:block"> Online<span className="">Study</span></span>
                     </Link>
                 </div>
+
                 <div className="flex-none gap-2">
                     <ul className="flex items-center gap-2 md:gap-6 font-medium ">
                         <li>
-                            <NavLink to='/' className={({ isActive }) => `hover:text-customGreen duration-500 ${isActive && 'text-customGreen'}`}>Home</NavLink>
+                            <NavLink to='/' className={({ isActive }) => ` duration-500 hidden md:block ${isActive && 'border-b-2'}`}>Home</NavLink>
                         </li>
                         <li>
-                            <NavLink to='assignments' className={({ isActive }) => `hover:text-customGreen duration-500 ${isActive && 'text-customGreen'}`}>Assignments</NavLink>
+                            <NavLink to='assignments' className={({ isActive }) => ` hidden md:block duration-500 ${isActive && 'border-b-2'}`}>Assignments</NavLink>
                         </li>
                         <li>
                             <label className="swap swap-rotate">
@@ -87,7 +115,7 @@ const Navbar = () => {
                             </div>
                             <ul
                                 tabIndex={0}
-                                className="menu menu-sm dropdown-content bg-base-100 dark:text-black font-medium z-50 mt-3 w-52 p-4 space-y-2 shadow">
+                                className="menu menu-sm dropdown-content bg-base-100 dark:text-black text-black font-medium z-50 mt-3 w-52 p-4 space-y-2 shadow">
 
                                 <NavLink to='/createAssignments' className={({ isActive }) => `hover:text-customGreen duration-500 ${isActive && 'text-customGreen'}`}>Create Assignments</NavLink>
 
@@ -104,6 +132,7 @@ const Navbar = () => {
                         </div>
                     }
                 </div>
+
             </div>
         </nav>
     );

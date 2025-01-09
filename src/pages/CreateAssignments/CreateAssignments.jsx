@@ -56,7 +56,7 @@ const CreateAssignments = () => {
     }
 
     return (
-        <div className="min-h-screen flex items-center justify-center ">
+        <div className="min-h-screen flex items-center justify-center py-12">
             <div className="max-w-4xl w-full bg-white shadow-xl border border-gray-200  dark:text-black rounded-lg overflow-hidden p-8 my-">
                 <h2 className="text-3xl font-bold text-center mb-6 text-gray-800">Create Assignment</h2>
                 <form onSubmit={handleSubmit}>

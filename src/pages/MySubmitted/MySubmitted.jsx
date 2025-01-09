@@ -19,7 +19,7 @@ const MySubmitted = () => {
 
 
     return (
-        <div className="max-w-[1400px] mx-auto">
+        <div className="max-w-[1400px] mx-auto py-12">
             <h3 className="mb-4 text-xl max-w-xs mx-auto font-semibold text-indigo-600  text-center p-4 border-l-4 border-indigo-400 border-r-4  bg-white shadow-md rounded-md">
                 My Assignments:
                 <span className="text-indigo-800 bg-indigo-50 px-3 py-1 rounded-full ml-2">{submissions.length}</span>

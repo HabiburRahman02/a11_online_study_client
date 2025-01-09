@@ -15,10 +15,10 @@ const Banner = () => {
     return (
         <div className=''>
             <AutoplaySlider
-                play={true}
+                // play={true}
                 cancelOnInteraction={false}
                 interval={2000}
-                className='w-full md:h-screen h-[520px]' >
+                className='w-full md:h-[500px] h-[520px]' >
                 <div
                     className="hero min-h-screen"
                     style={{
@@ -39,7 +39,7 @@ const Banner = () => {
                                     <h1 className="mb-12 text-5xl md:text-6xl font-bold uppercase">so easy when <span className='text-[#1ba590]'>udetor</span> appears.</h1>
 
                                 </Fade>
-                                <Link to='/'>
+                                <Link to='/assignments'>
                                     <Fade direction='up' duration={2000}>
                                         <button className="uppercase bg-customGreen py-2 px-12  text-white font-bold 
                                     border-[2px]
@@ -75,7 +75,7 @@ const Banner = () => {
                                     <h1 className="mb-12 text-5xl md:text-6xl font-bold uppercase">so easy when <span className='text-[#1ba590]'>udetor</span> appears.</h1>
 
                                 </Fade>
-                                <Link to='/'>
+                                <Link to='/assignments'>
                                     <Fade direction='up' duration={2000}>
                                         <button className="uppercase bg-customGreen py-2 px-12  text-white font-bold 
                                     border-[2px]
@@ -111,7 +111,7 @@ const Banner = () => {
                                     <h1 className="mb-12 text-5xl md:text-6xl font-bold uppercase">so easy when <span className='text-[#1ba590]'>udetor</span> appears.</h1>
 
                                 </Fade>
-                                <Link to='/'>
+                                <Link to='/assignments'>
                                     <Fade direction='up' duration={2000}>
                                         <button className="uppercase bg-customGreen py-2 px-12  text-white font-bold 
                                     border-[2px]

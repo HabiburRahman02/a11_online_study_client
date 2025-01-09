@@ -5,7 +5,7 @@ import { Fade } from "react-awesome-reveal";
 const Footer = () => {
     return (
 
-        <div className="mt-20">
+        <div className="">
             <div style={{ backgroundImage: `url(${logo})` }} className="bg-[#1d181f]">
                 <Fade direction='left' duration={2000}>
                     <footer className="footer md:flex justify-between py-20 max-w-[1400px] mx-auto font-bold  text-[#979797] p-10">

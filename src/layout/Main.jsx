@@ -12,7 +12,7 @@ const Main = () => {
     return (
         <div>
             <div>
-                {noHeaderFooter || <Navbar></Navbar>}
+                {noHeaderFooter || <div className="mb-[89px]"><Navbar></Navbar></div>}
                 {showBanner && <Banner></Banner>}
             </div>
 

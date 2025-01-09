@@ -9,7 +9,7 @@ import { ToastContainer } from 'react-toastify'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <div className='dark:text-white dark:bg-gray-700'>
+    <div className='dark:text-white bg-gray-50 dark:bg-gray-700'>
       <AuthProvider>
         <RouterProvider router={router} />
         <ToastContainer position='top-center'></ToastContainer>
