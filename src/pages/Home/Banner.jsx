@@ -15,7 +15,7 @@ const Banner = () => {
     return (
         <div className=''>
             <AutoplaySlider
-                // play={true}
+                play={true}
                 cancelOnInteraction={false}
                 interval={2000}
                 className='w-full md:h-[500px] h-[520px]' >

@@ -1,0 +1,42 @@
+[
+    {
+      "id": 1,
+      "img": "https://i.ibb.co.com/VtsCc0x/user-1.jpg",
+      "name": "Rina Rahman",
+      "description": "The process of donating clothes was very simple and straightforward. I’m glad I could help those in need. Thank you for providing such an amazing platform!",
+      "date": "2024-11-10",
+      "rating": 5
+    },
+    {
+      "id": 2,
+      "img": "https://i.ibb.co.com/0ypg14g/user-2.jpg",
+      "name": "Masud Ahmed",
+      "description": "I received clothes for my family, and we are extremely grateful. The initiative is truly impactful, and it has made a big difference in our lives.",
+      "date": "2024-11-12",
+      "rating": 4
+    },
+    {
+      "id": 4,
+      "img": "https://i.ibb.co.com/QDSb3JQ/user-4.jpg",
+      "name": "Jamal Hossain",
+      "description": "This is a wonderful platform for giving away clothes. However, the collection points could be more accessible in remote areas. Overall, a great initiative!",
+      "date": "2024-11-13",
+      "rating": 4
+    },
+    {
+      "id": 5,
+      "img": "https://i.ibb.co.com/gFz8JWy/user-5.jpg",
+      "name": "Farah Islam",
+      "description": "I donated several bags of clothes, and I must say the whole experience was seamless. The team is doing an excellent job, and I highly recommend others to donate as well.",
+      "date": "2024-11-14",
+      "rating": 5
+    },
+    {
+      "id": 6,
+      "img": "https://i.ibb.co.com/m4VnT6s/user-6.jpg",
+      "name": "Kazi Anwar",
+      "description": "The process was straightforward, and I am happy that my clothes are being reused for a good cause. I hope this platform continues to grow and help more people in need.",
+      "date": "2024-11-16",
+      "rating": 4
+    }
+  ]
