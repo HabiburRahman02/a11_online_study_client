@@ -13,9 +13,8 @@ const Footer = () => {
                         <div>
                             <h6 className="text-xl font-bold mb-4">Services</h6>
                             <ul className="space-y-3">
-                                <li><Link to='aboutUs' className="hover:text-green-500 transition-colors">About Us</Link></li>
-                                <li><Link to='contactUs' className="hover:text-green-500 transition-colors">Contact</Link></li>
-                                <li><Link to='allCampaign' className="hover:text-green-500 transition-colors">All Campaigns</Link></li>
+                                <li><Link to='/' className="hover:text-green-500 transition-colors">Home</Link></li>
+                                <li><Link to='assignments' className="hover:text-green-500 transition-colors">Assignments</Link></li>
                             </ul>
                         </div>
 
@@ -23,9 +22,8 @@ const Footer = () => {
                         <div>
                             <h6 className="text-xl font-bold mb-4">Features</h6>
                             <ul className="space-y-3">
-                                <li><a href="#blogs" className="hover:text-green-500 transition-colors">Blogs</a></li>
-                                <li><a href="#feedback" className="hover:text-green-500 transition-colors">Feedback</a></li>
-                                <li><a href="#team" className="hover:text-green-500 transition-colors">Team</a></li>
+                                <li><Link to='/facility' className="hover:text-green-500 transition-colors">Facility</Link></li>
+                                <li><Link to='/contact' className="hover:text-green-500 transition-colors">Contact</Link></li>
                             </ul>
                         </div>
 
@@ -34,7 +32,7 @@ const Footer = () => {
                             <h6 className="text-xl font-bold mb-4">Contact Info</h6>
                             <ul className="space-y-3">
                                 <li><span>Email:</span> <a href="mailto:info@crowcube.com" className="hover:text-green-500 transition-colors">habibur88454@gmail.com</a></li>
-                                <li><span>Phone:</span> <a href="tel:+1234567890" className="hover:text-green-500 transition-colors">+8801779888454</a></li>
+                                {/* <li><span>Phone:</span> <a href="tel:+1234567890" className="hover:text-green-500 transition-colors">+8801779888454</a></li> */}
                                 <li><span>Address:</span> Dhaka, Bangladesh</li>
                             </ul>
                         </div>

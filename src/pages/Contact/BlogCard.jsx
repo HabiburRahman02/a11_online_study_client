@@ -6,10 +6,10 @@ import { Link } from "react-router-dom";
 const BlogCard = ({ blog }) => {
     const { title, description, image, author, date } = blog
     return (
-        <div className=" bg-white dark:bg-gray-700 dark:text-white shadow-lg hover:shadow-xl transition-shadow duration-300">
+        <div className=" bg-white rounded-lg dark:bg-gray-700 dark:text-white shadow-lg hover:shadow-xl transition-shadow duration-300">
             {/* Image */}
             <img
-                className="w-full h-48 object-cover"
+                className="w-full h-48 rounded-lg rounded-b-none object-cover"
                 src={image}
                 alt={title}
             />
