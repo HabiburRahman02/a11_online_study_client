@@ -53,9 +53,6 @@ const Navbar = () => {
                                     <NavLink to='assignments' className={({ isActive }) => `hover:text-customGreen duration-500 ${isActive && 'text-customGreen'}`}>Assignments</NavLink>
                                 </li>
                                 <li>
-                                    <NavLink to='aboutUs' className={({ isActive }) => `hover:text-customGreen duration-500 ${isActive && 'text-customGreen'}`}>About</NavLink>
-                                </li>
-                                <li>
                                     <NavLink to='facility' className={({ isActive }) => `hover:text-customGreen duration-500 ${isActive && 'text-customGreen'}`}>Facility</NavLink>
                                 </li>
                                 <li>
@@ -77,9 +74,6 @@ const Navbar = () => {
                         </li>
                         <li>
                             <NavLink to='assignments' className={({ isActive }) => ` hidden md:block duration-500 ${isActive && 'border-b-2'}`}>Assignments</NavLink>
-                        </li>
-                        <li>
-                            <NavLink to='aboutUs' className={({ isActive }) => ` hidden md:block duration-500 ${isActive && 'border-b-2'}`}>About</NavLink>
                         </li>
                         <li>
                             <NavLink to='facility' className={({ isActive }) => ` hidden md:block duration-500 ${isActive && 'border-b-2'}`}>Facility</NavLink>

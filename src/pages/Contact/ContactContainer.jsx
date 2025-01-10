@@ -5,7 +5,7 @@ import ContactInfo from "./ContactInfo";
 
 const ContactContainer = () => {
     return (
-        <div className="my-12">
+        <div className="mt-12">
             <div className="max-w-[1400px] mx-auto">
                 <Heading title='Contact Us'></Heading>
 

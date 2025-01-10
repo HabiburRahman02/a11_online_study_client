@@ -7,20 +7,19 @@ import Lottie from "lottie-react";
 
 const ContactInfo = () => {
     return (
-        <div className="md:w-2/5 mb-6 rounded-2xl p-4">
+        <div className="md:w-2/5 mb-6 p-4">
             <Zoom duration={1000} triggerOnce>
-                <Lottie animationData={contactImg} loop={true} />
-                {/* <img className="rounded-lg h-64 w-full object-cover shadow-lg" src={contactImg} alt="Contact" /> */}
+                <Lottie className="border-r-2 border-l-2 w-full" animationData={contactImg} loop={true} />
             </Zoom>
             <Fade direction="up" duration={1000} triggerOnce>
                 <div className="mt-6">
-                    <h3 className="text-2xl font-semibold">Crowd Cube</h3>
+                    <h3 className="text-2xl font-semibold">Online Study</h3>
                     <p className="text-xl">
-                        A Fund Rising Platform
+                        A Online Study Platform
                     </p>
                 </div>
             </ Fade>
-            <div className="mt-6 space-y-2">
+            <div className="mt-6 space-y-1">
                 <Fade direction="up" duration={1000}>
                     <div className="flex items-start gap-4">
                         <FaPhone className="text-2xl text-blue-500" />

@@ -25,11 +25,12 @@ const AssignmentCard = ({ assignment, handleDelete }) => {
     }
     return (
 
-        <div key={assignment._id} className="space-y-2 bg-white border shadow-lg rounded-lg p-6 hover:shadow-xl transition-transform duration-500 ease-in-out mx-6 md:mx-0  hover:scale-105 dark:bg-gray-700 dark:shadow-2xl">
+        <div key={assignment._id} className="w-full space-y-2 bg-white dark:border shadow-lg rounded-lg hover:bg-gray-50 p-4 hover:shadow-xl  duration-500 ease-in-out dark:bg-gray-700 dark:shadow-2xl">
 
-            <div className="flex items-center justify-center mb-4">
+            <div className="relative flex items-center justify-center mb-4">
+                <div className="absolute top-2 right-2 bg-pink-500 text-white px-4 py-1 rounded-md">{difficulty}</div>
                 <img
-                    className="w-full h-60 rounded-lg object-cover"
+                    className="w-full h-40 rounded-lg object-cover"
                     src={thumbnail}
                     alt="Thumbnail"
                 />
@@ -40,9 +41,9 @@ const AssignmentCard = ({ assignment, handleDelete }) => {
             <Fade duration={1000} direction="up">
                 <p className="text-sm text-gray-700 mt-2 dark:text-white">Total Marks: <span className="font-semibold text-indigo-600 dark:text-white">{marks}</span></p>
             </Fade>
-            <Fade duration={1000} direction="up">
+            {/* <Fade duration={1000} direction="up">
                 <div className="text-sm text-gray-700 dark:text-white">Difficulty:  <div className="badge badge-secondary">{difficulty}</div></div>
-            </Fade>
+            </Fade> */}
             <Fade duration={1000} direction="up">
                 <p className="text-sm text-gray-700 dark:text-white">Date: <span className="font-semibold text-gray-900 dark:text-white">{date}</span></p>
             </Fade>

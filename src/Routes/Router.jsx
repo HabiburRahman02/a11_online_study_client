@@ -13,7 +13,6 @@ import MySubmitted from "../pages/MySubmitted/MySubmitted";
 import PendingAssignments from "../pages/PendingAssignments/PendingAssignments";
 import GiveMark from "../pages/PendingAssignments/GiveMark";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
-import AboutUs from "../pages/AboutUs/AboutUs";
 import Facility from "../pages/Facility/Facility";
 import Contact from "../pages/Contact/Contact";
 
@@ -44,10 +43,6 @@ const router = createBrowserRouter([
                 element: <Assignments></Assignments>
             },
             {
-                path: '/aboutUs',
-                element: <AboutUs></AboutUs>
-            },
-            {
                 path: '/facility',
                 element: <Facility></Facility>
             },
@@ -62,7 +57,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/assignmentDetails/:id',
-                element: <PrivateRoute><AssignmentDetails></AssignmentDetails></PrivateRoute>,
+                element: <AssignmentDetails></AssignmentDetails>,
                 loader: ({ params }) => fetch(`https://a11-group-study-server-rho.vercel.app/assignmentById/${params.id}`)
             },
             {
