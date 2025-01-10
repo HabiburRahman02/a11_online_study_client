@@ -15,6 +15,7 @@ import GiveMark from "../pages/PendingAssignments/GiveMark";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import AboutUs from "../pages/AboutUs/AboutUs";
 import Facility from "../pages/Facility/Facility";
+import Contact from "../pages/Contact/Contact";
 
 const router = createBrowserRouter([
     {
@@ -49,6 +50,10 @@ const router = createBrowserRouter([
             {
                 path: '/facility',
                 element: <Facility></Facility>
+            },
+            {
+                path: '/contact',
+                element: <Contact></Contact>
             },
             {
                 path: '/updateAssignment/:id',

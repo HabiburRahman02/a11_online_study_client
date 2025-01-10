@@ -1,5 +1,5 @@
 import Heading from "../../components/Heading";
-import BlogCard from "./BlogCard";
+import BlogCard from "../Contact/BlogCard";
 
 const BlogSection = () => {
 

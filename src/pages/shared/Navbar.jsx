@@ -58,6 +58,9 @@ const Navbar = () => {
                                 <li>
                                     <NavLink to='facility' className={({ isActive }) => `hover:text-customGreen duration-500 ${isActive && 'text-customGreen'}`}>Facility</NavLink>
                                 </li>
+                                <li>
+                                    <NavLink to='contact' className={({ isActive }) => `hover:text-customGreen duration-500 ${isActive && 'text-customGreen'}`}>Contact</NavLink>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -80,6 +83,9 @@ const Navbar = () => {
                         </li>
                         <li>
                             <NavLink to='facility' className={({ isActive }) => ` hidden md:block duration-500 ${isActive && 'border-b-2'}`}>Facility</NavLink>
+                        </li>
+                        <li>
+                            <NavLink to='contact' className={({ isActive }) => ` hidden md:block duration-500 ${isActive && 'border-b-2'}`}>Contact</NavLink>
                         </li>
                         <li>
                             <label className="swap swap-rotate">
