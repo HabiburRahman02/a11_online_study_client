@@ -18,7 +18,7 @@ const Banner = () => {
                 play={true}
                 cancelOnInteraction={false}
                 interval={2000}
-                className='w-full md:h-[500px] h-[520px]' >
+                className='w-full md:h-[550px] bg-fixed h-[520px]' >
                 <div
                     className="hero min-h-screen"
                     style={{
