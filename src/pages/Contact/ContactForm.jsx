@@ -5,7 +5,7 @@ const ContactForm = () => {
 
     return (
         <div>
-            <form className="card-body bg-white dark:text-gray-500 rounded-xl shadow-lg hover:shadow-xl duration-500 transition-all">
+            <form className="card-body bg-white dark:text-gray-300 rounded-xl shadow-lg hover:shadow-xl duration-500 transition-all dark:bg-gray-800 ">
                 <div className="form-control mb-4">
                     <label className="label">
                         <span className="text-xl font-medium ">
@@ -17,7 +17,7 @@ const ContactForm = () => {
                             name="user_name"
                             type="text"
                             placeholder="Enter your name"
-                            className="w-full border border-gray-300 p-4 rounded-md focus:outline-none focus:ring-1 focus:ring-green-500"
+                            className="w-full border border-gray-300 p-4 rounded-md focus:outline-none focus:ring-1 focus:ring-green-500 dark:text-gray-800"
                             required
                         />
                     </Fade>
@@ -34,7 +34,7 @@ const ContactForm = () => {
                             name="user_email"
                             type="email"
                             placeholder="Enter your email"
-                            className="w-full border border-gray-300 p-4 rounded-md focus:outline-none focus:ring-1 focus:ring-green-500"
+                            className="w-full border border-gray-300 p-4 rounded-md focus:outline-none focus:ring-1 focus:ring-green-500 dark:text-gray-800"
                             required
                         />
                     </Fade>
@@ -51,7 +51,7 @@ const ContactForm = () => {
                             name="message"
                             rows={4}
                             placeholder="Enter your message"
-                            className="w-full border border-gray-300 p-4 rounded-md focus:outline-none focus:ring-1 focus:ring-green-500"
+                            className="w-full border border-gray-300 p-4 rounded-md focus:outline-none focus:ring-1 focus:ring-green-500 dark:text-gray-800"
                             required
                         ></textarea>
                     </Fade>

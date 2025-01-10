@@ -37,7 +37,7 @@ const AssignmentSubmission = () => {
     };
 
     return (
-        <div className="mx-3 md:mx-0">
+        <div className="mx-3 md:mx-0 py-12">
             <div className="font-semibold p-6 max-w-2xl mx-auto bg-white dark:text-black border border-gray-200 rounded-md shadow-md">
                 <h2 className="text-xl font-bold mb-4 text-center">Submit Your Assignment</h2>
 

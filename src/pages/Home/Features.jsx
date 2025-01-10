@@ -40,7 +40,7 @@ const Features = () => {
                     {featuresData.map(feature => (
                         <div
                             key={feature.id}
-                            className="p-6 bg-white dark:text-white dark:bg-gray-700  rounded-2xl shadow-xl dark:shadow-2xl hover:scale-105 hover:shadow-2xl transition-transform duration-300"
+                            className="p-6 bg-white dark:text-white dark:bg-gray-800  rounded-2xl shadow-xl dark:shadow-2xl hover:scale-105 hover:shadow-2xl transition-transform duration-300"
                         >
                             <Fade direction='down' duration={2000}>
                                 {feature.icon}

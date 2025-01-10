@@ -50,14 +50,14 @@ const OurTeam = () => {
             <Heading title='Meet Our Team'></Heading>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                 {teamMembers.map((member) => (
-                    <div key={member.name} className="p-6 bg-white hover:bg-gray-50  shadow hover:shadow-lg transition duration-300 text-center">
+                    <div key={member.name} className="p-6 bg-white hover:bg-gray-50  shadow hover:shadow-lg transition duration-300 text-center dark:bg-gray-800 dark:text-white dark:shadow-2xl">
                         <img
                             src={member.image}
                             alt={member.name}
                             className="rounded-full object-cover w-32 h-32 mx-auto mb-4 border-4 border-blue-500 shadow-xl"
                         />
-                        <h3 className="text-lg font-semibold text-gray-800">{member.name}</h3>
-                        <p className="text-gray-600 mb-4">{member.role}</p>
+                        <h3 className="text-lg font-semibold text-gray-800 dark:text-white">{member.name}</h3>
+                        <p className="text-gray-600 dark:text-gray-200 mb-4">{member.role}</p>
                         <div className="flex justify-center mt-4 space-x-4">
                             <a href={member.socialLinks.facebook} className="text-blue-600 hover:text-blue-800 transition duration-300 transform hover:scale-110">
                                 <FaFacebook size={24} />
