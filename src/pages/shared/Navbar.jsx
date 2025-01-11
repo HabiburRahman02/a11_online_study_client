@@ -45,7 +45,7 @@ const Navbar = () => {
                             </div>
                             <ul
                                 tabIndex={0}
-                                className="menu menu-sm dropdown-content bg-base-100 dark:text-black text-black font-medium z-50 mt-3 w-52 p-4 space-y-2 shadow">
+                                className="menu menu-sm dropdown-content dark:text-black text-black font-medium z-50 mt-3 w-52 p-4 space-y-2 shadow bg-white">
                                 <li>
                                     <NavLink to='/' className={({ isActive }) => `hover:text-customGreen duration-500 ${isActive && 'text-customGreen'}`}>Home</NavLink>
                                 </li>

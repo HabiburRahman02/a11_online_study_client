@@ -28,9 +28,9 @@ const AssignmentCard = ({ assignment, handleDelete }) => {
         <div key={assignment._id} className="w-full space-y-2 bg-white dark:border shadow-lg rounded-lg hover:bg-gray-50 p-4 hover:shadow-xl  duration-500 ease-in-out dark:bg-gray-700 dark:shadow-2xl">
 
             <div className="relative flex items-center justify-center mb-4">
-                <div className="absolute top-2 right-2 bg-pink-500 text-white px-4 py-1 rounded-md">{difficulty}</div>
+                <div className="absolute top-2 right-2 bg-pink-600 text-white px-4 py-1 rounded-md">{difficulty}</div>
                 <img
-                    className="w-full h-40 rounded-lg object-cover"
+                    className="w-full h-60 sm:h-40 rounded-lg object-cover"
                     src={thumbnail}
                     alt="Thumbnail"
                 />
